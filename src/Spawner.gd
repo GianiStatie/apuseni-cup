@@ -1,6 +1,6 @@
 extends Node
 
-const TreeScene = preload("res://spawnables/tree.tscn")
+const TreeScene = preload("res://src/spawnables/tree.tscn")
 
 var max_trees_per_row = 2
 

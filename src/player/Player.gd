@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Area2D
 
 var should_accelearte = false
 var should_decelerate = false

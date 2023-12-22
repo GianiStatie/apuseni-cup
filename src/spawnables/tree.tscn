@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwod4tkxd1soh"]
 
 [ext_resource type="Texture2D" uid="uid://cepfg2qsnk2vh" path="res://icon.svg" id="1_el71h"]
-[ext_resource type="Script" path="res://spawnables/Tree.gd" id="1_icfeb"]
+[ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_icfeb"]
 
 [node name="Tree" type="Area2D"]
 script = ExtResource("1_icfeb")
