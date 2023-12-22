@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv2oa7jeduxmj"]
+
+[ext_resource type="Script" path="res://Spawner.gd" id="1_7x8jn"]
+[ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
+[ext_resource type="Texture2D" uid="uid://cepfg2qsnk2vh" path="res://icon.svg" id="1_hbu8c"]
+[ext_resource type="Script" path="res://Player.gd" id="2_uin7w"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_bjy5c")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(576, 216)
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("1_hbu8c")
+script = ExtResource("2_uin7w")
+
+[node name="Spawner" type="Node" parent="."]
+script = ExtResource("1_7x8jn")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+custom_minimum_size = Vector2(50, 0)
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 50
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1000.0
+fill_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="UI/CenterContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Press Down Arrow to Start"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="started_game" from="Player" to="." method="_on_player_started_game"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
