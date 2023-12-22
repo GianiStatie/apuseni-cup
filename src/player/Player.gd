@@ -10,6 +10,9 @@ var acceleartion = 5
 var deceleration = 10
 var strife_perc = 0.5
 
+@onready var sprite_stop = $SpriteStop
+@onready var sprite_move = $SpriteMove
+
 signal player_hit_obstacle
 
 
@@ -40,6 +43,14 @@ func _input(event):
 		GameState.game_paused = false
 
 func _process(_delta):
+	if GameState.game_paused:
+		return
+	
+	if GameState.move_speed_y <= GameState.min_speed_y:
+		sprite_move.visible = false
+	else:
+		sprite_move.visible = true
+	
 	if should_accelearte and GameState.move_speed_y < GameState.max_speed_y:
 		GameState.move_speed_y += acceleartion
 	if should_decelerate and GameState.move_speed_y > GameState.min_speed_y:

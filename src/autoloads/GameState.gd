@@ -2,6 +2,7 @@ extends Node
 
 var min_speed_y = 10
 var max_speed_y = 1500
+var highscore = 0
 
 var move_speed_x = 0
 var move_speed_y = 420

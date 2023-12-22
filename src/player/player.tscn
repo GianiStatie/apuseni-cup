@@ -1,21 +1,30 @@
 [gd_scene load_steps=4 format=3 uid="uid://81xjq4l4ksk6"]
 
-[ext_resource type="Texture2D" uid="uid://cepfg2qsnk2vh" path="res://icon.svg" id="1_v3vif"]
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_k5ly4"]
+[ext_resource type="Texture2D" uid="uid://b60e0ehsbvf74" path="res://assets/tilemap.png" id="2_vumkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6np"]
-size = Vector2(12, 13)
+size = Vector2(12, 12)
 
 [node name="Player" type="Area2D"]
 collision_mask = 2
 script = ExtResource("2_k5ly4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.2)
-texture = ExtResource("1_v3vif")
+[node name="SpriteStop" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_vumkv")
+region_enabled = true
+region_rect = Rect2(170, 85, 16, 16)
+
+[node name="SpriteMove" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("2_vumkv")
+region_enabled = true
+region_rect = Rect2(187, 85, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_cu6np")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

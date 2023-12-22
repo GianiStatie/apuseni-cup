@@ -39,10 +39,12 @@ theme_override_constants/margin_bottom = 25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TitleContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
 layout_mode = 2
-text = "- YOUR SCORE -"
+theme_override_font_sizes/font_size = 32
+text = "FINAL SCORE"
 horizontal_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
@@ -50,6 +52,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "000000"
+horizontal_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "- NEW HIGH SCORE -"
 horizontal_alignment = 1
 
 [node name="TimeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
