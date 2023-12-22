@@ -7,8 +7,18 @@ extends Node2D
 
 @onready var main_theme = $MainTheme
 
+@onready var spawner = $Spawner
+
 var distance = 0
 var max_player_speed = 0
+
+func _input(event):
+	if event.is_action_pressed("ui_accept") and %TutorialScreen.visible:
+		_on_tutorial_button_button_down()
+
+func _ready():
+	if GameState.seen_tutorial:
+		_on_tutorial_button_button_down()
 
 func _process(_delta):
 	if GameState.game_paused:
@@ -21,6 +31,7 @@ func _process(_delta):
 	distance += GameState.move_speed_y / 1e4 
 	progress_bar.value = distance
 	
+	# TODO: add celebration for 100% complete
 	if distance == max_distance:
 		_on_player_player_hit_obstacle()
 
@@ -37,3 +48,11 @@ func _on_player_player_hit_obstacle():
 
 func _on_player_player_started_game():
 	main_theme.play(3)
+
+func _on_tutorial_button_button_down():
+	GameState.seen_tutorial = true
+	%TutorialScreen.visible = false
+	%Time.visible = true
+
+func _on_level_1_timeout():
+	print('level 1 completed')

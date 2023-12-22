@@ -1,11 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv2oa7jeduxmj"]
+[gd_scene load_steps=10 format=3 uid="uid://dv2oa7jeduxmj"]
 
 [ext_resource type="Script" path="res://src/Spawner.gd" id="1_7x8jn"]
 [ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
 [ext_resource type="PackedScene" uid="uid://81xjq4l4ksk6" path="res://src/player/player.tscn" id="2_jupeb"]
 [ext_resource type="Script" path="res://Timer.gd" id="4_cbk4s"]
 [ext_resource type="PackedScene" uid="uid://bkua7eblr7mjy" path="res://src/ui/end_screen.tscn" id="5_e0xiv"]
+[ext_resource type="Texture2D" uid="uid://cbb4a64ni8gv7" path="res://assets/screens/tutorial-export1.png" id="6_11frj"]
 [ext_resource type="AudioStream" uid="uid://cy1cappfgrojd" path="res://assets/sounds/Grieg - In the Hall of the Mountain King.mp3" id="6_hd5dd"]
+[ext_resource type="Texture2D" uid="uid://jn2vbxyhm25c" path="res://assets/screens/tutorial-export2.png" id="7_5gdvd"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xhxcp"]
+frames = 2
+frame_0/texture = ExtResource("6_11frj")
+frame_1/texture = ExtResource("7_5gdvd")
+frame_1/duration = 1.0
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bjy5c")
@@ -36,6 +44,7 @@ theme_override_constants/margin_top = 20
 
 [node name="Time" type="Label" parent="UI/MarginContainer2"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
@@ -81,9 +90,53 @@ fill_mode = 2
 unique_name_in_owner = true
 visible = false
 
+[node name="TutorialScreen" type="CenterContainer" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -42.5
+offset_right = 71.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/TutorialScreen"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/TutorialScreen"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/TutorialScreen/VBoxContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+texture = SubResource("AnimatedTexture_xhxcp")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/TutorialScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+
+[node name="TutorialButton" type="Button" parent="UI/TutorialScreen/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Let's Do This!"
+
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_hd5dd")
 volume_db = 20.0
 
+[node name="Level1" type="Timer" parent="."]
+wait_time = 17.5
+one_shot = true
+autostart = true
+
 [connection signal="player_hit_obstacle" from="Player" to="." method="_on_player_player_hit_obstacle"]
 [connection signal="player_started_game" from="Player" to="." method="_on_player_player_started_game"]
+[connection signal="button_down" from="UI/TutorialScreen/VBoxContainer/MarginContainer/TutorialButton" to="." method="_on_tutorial_button_button_down"]
+[connection signal="timeout" from="Level1" to="." method="_on_level_1_timeout"]

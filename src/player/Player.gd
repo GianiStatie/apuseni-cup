@@ -65,7 +65,7 @@ func _process(_delta):
 		var srtife_speed = strife_perc * GameState.move_speed_y
 		GameState.move_speed_x = -srtife_speed if strife_left else srtife_speed
 
-func _on_area_entered(area):
+func _on_area_entered(_area):
 	GameState.move_speed_x = 0
 	oof_sound.play(0.2)
 	player_hit_obstacle.emit()
