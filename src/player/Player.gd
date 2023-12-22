@@ -12,7 +12,9 @@ var strife_perc = 0.5
 
 @onready var sprite_stop = $SpriteStop
 @onready var sprite_move = $SpriteMove
+@onready var oof_sound = $OofSoundEffect
 
+signal player_started_game
 signal player_hit_obstacle
 
 
@@ -40,6 +42,7 @@ func _input(event):
 		strife_right = false
 	
 	if GameState.game_paused and should_accelearte:
+		player_started_game.emit()
 		GameState.game_paused = false
 
 func _process(_delta):
@@ -64,4 +67,5 @@ func _process(_delta):
 
 func _on_area_entered(area):
 	GameState.move_speed_x = 0
+	oof_sound.play(0.2)
 	player_hit_obstacle.emit()

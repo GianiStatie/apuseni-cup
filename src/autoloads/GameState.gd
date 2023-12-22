@@ -5,7 +5,7 @@ var max_speed_y = 1500
 var highscore = 0
 
 var move_speed_x = 0
-var move_speed_y = 420
+var move_speed_y = 20
 var game_paused = true
 var game_over = false
 

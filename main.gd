@@ -5,6 +5,8 @@ extends Node2D
 @onready var end_screen = %EndScreen
 @onready var max_distance = progress_bar.max_value
 
+@onready var main_theme = $MainTheme
+
 var distance = 0
 var max_player_speed = 0
 
@@ -30,4 +32,8 @@ func _on_player_player_hit_obstacle():
 	GameState.game_paused = true
 	GameState.game_over = true
 	
+	main_theme.stop()
 	end_screen._on_game_over()
+
+func _on_player_player_started_game():
+	main_theme.play(3)

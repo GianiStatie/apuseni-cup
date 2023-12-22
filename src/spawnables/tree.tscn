@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwod4tkxd1soh"]
 
 [ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_8q0i7"]
-[ext_resource type="Texture2D" uid="uid://b60e0ehsbvf74" path="res://assets/tilemap.png" id="2_1fppw"]
+[ext_resource type="Texture2D" uid="uid://b60e0ehsbvf74" path="res://assets/sprites/tilemap.png" id="2_jde5n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(32, 32)
@@ -14,14 +14,14 @@ script = ExtResource("1_8q0i7")
 [node name="TreeTopSprite" type="Sprite2D" parent="."]
 position = Vector2(0, 16)
 scale = Vector2(2, 2)
-texture = ExtResource("2_1fppw")
+texture = ExtResource("2_jde5n")
 region_enabled = true
 region_rect = Rect2(102, 17, 16, 16)
 
 [node name="TreeSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 scale = Vector2(2, 2)
-texture = ExtResource("2_1fppw")
+texture = ExtResource("2_jde5n")
 region_enabled = true
 region_rect = Rect2(102, 0, 16, 16)
 
