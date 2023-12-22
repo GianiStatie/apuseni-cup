@@ -32,4 +32,4 @@ func reset_state():
 	
 	game_paused = true
 	game_over = false
-	move_speed_y = 420
+	move_speed_y = 20
