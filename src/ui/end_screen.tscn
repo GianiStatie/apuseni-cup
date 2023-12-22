@@ -1,0 +1,117 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkua7eblr7mjy"]
+
+[ext_resource type="Script" path="res://src/ui/EndScreen.gd" id="1_vemph"]
+
+[node name="EndScreen" type="Panel"]
+custom_minimum_size = Vector2(350, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vemph")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
+layout_mode = 2
+text = "- YOUR SCORE -"
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "000000"
+horizontal_alignment = 1
+
+[node name="TimeContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TimeContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Time"
+vertical_alignment = 1
+
+[node name="TotalTimeLabel" type="Label" parent="MarginContainer/VBoxContainer/TimeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DistanceContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/DistanceContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Distance
+"
+vertical_alignment = 1
+
+[node name="DistanceLabel" type="Label" parent="MarginContainer/VBoxContainer/DistanceContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SpeedContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/SpeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maximum Speed"
+vertical_alignment = 1
+
+[node name="MaxSpeedLabel" type="Label" parent="MarginContainer/VBoxContainer/SpeedContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 80
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "I Can Do Better"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/Button" to="." method="_on_button_button_down"]

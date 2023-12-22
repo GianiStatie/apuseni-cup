@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv2oa7jeduxmj"]
+[gd_scene load_steps=6 format=3 uid="uid://dv2oa7jeduxmj"]
 
 [ext_resource type="Script" path="res://src/Spawner.gd" id="1_7x8jn"]
 [ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
 [ext_resource type="PackedScene" uid="uid://81xjq4l4ksk6" path="res://src/player/player.tscn" id="2_jupeb"]
+[ext_resource type="Script" path="res://Timer.gd" id="4_cbk4s"]
+[ext_resource type="PackedScene" uid="uid://bkua7eblr7mjy" path="res://src/ui/end_screen.tscn" id="5_e0xiv"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bjy5c")
@@ -25,6 +27,21 @@ grow_vertical = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="MarginContainer2" type="MarginContainer" parent="UI"]
+offset_left = 423.0
+offset_right = 728.0
+offset_bottom = 54.0
+theme_override_constants/margin_top = 20
+
+[node name="Time" type="Label" parent="UI/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Press Down Arrow to Start"
+horizontal_alignment = 1
+script = ExtResource("4_cbk4s")
+
 [node name="MarginContainer" type="MarginContainer" parent="UI"]
 custom_minimum_size = Vector2(50, 0)
 anchors_preset = 11
@@ -39,35 +56,28 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 50
 
-[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(10, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 1
+alignment = 1
+
+[node name="SpeedLabel" type="Label" parent="UI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "0 mps"
+horizontal_alignment = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+size_flags_vertical = 3
 max_value = 1000.0
 fill_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="UI"]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="UI/CenterContainer"]
-layout_mode = 2
-theme_override_constants/margin_top = 20
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer/MarginContainer"]
-layout_mode = 2
-
-[node name="Time" type="Label" parent="UI/CenterContainer/MarginContainer/VBoxContainer"]
+[node name="EndScreen" parent="UI" instance=ExtResource("5_e0xiv")]
 unique_name_in_owner = true
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Press Down Arrow to Start"
-horizontal_alignment = 1
+visible = false
 
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="started_game" from="Player" to="." method="_on_player_started_game"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="player_hit_obstacle" from="Player" to="." method="_on_player_player_hit_obstacle"]

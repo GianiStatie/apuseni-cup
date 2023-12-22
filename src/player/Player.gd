@@ -10,10 +10,13 @@ var acceleartion = 5
 var deceleration = 10
 var strife_perc = 0.5
 
-signal started_game
+signal player_hit_obstacle
 
 
 func _input(event):
+	if GameState.game_over:
+		return
+	
 	if event.is_action_pressed("ui_down"):
 		should_accelearte = true
 	elif event.is_action_released("ui_down"):
@@ -34,7 +37,6 @@ func _input(event):
 		strife_right = false
 	
 	if GameState.game_paused and should_accelearte:
-		started_game.emit()
 		GameState.game_paused = false
 
 func _process(_delta):
@@ -48,3 +50,7 @@ func _process(_delta):
 	else:
 		var srtife_speed = strife_perc * GameState.move_speed_y
 		GameState.move_speed_x = -srtife_speed if strife_left else srtife_speed
+
+func _on_area_entered(area):
+	GameState.move_speed_x = 0
+	player_hit_obstacle.emit()
