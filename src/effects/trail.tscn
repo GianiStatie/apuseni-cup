@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyrkrgkdguess"]
+
+[ext_resource type="Script" path="res://src/effects/trail.gd" id="1_vpt6l"]
+
+[sub_resource type="Gradient" id="Gradient_w5ik1"]
+colors = PackedColorArray(1, 1, 1, 1, 0.717647, 0.823529, 0.921569, 1)
+
+[node name="TrailEffect" type="Node2D"]
+show_behind_parent = true
+script = ExtResource("1_vpt6l")
+
+[node name="TrailLeft" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(-6, -5.5)
+points = PackedVector2Array(0, -4.13793, 0, 5.7931)
+width = 6.0
+gradient = SubResource("Gradient_w5ik1")
+joint_mode = 1
+begin_cap_mode = 1
+
+[node name="TrailRight" type="Line2D" parent="."]
+show_behind_parent = true
+position = Vector2(6, -5.5)
+points = PackedVector2Array(0, -4.13793, 0, 5.7931)
+width = 6.0
+gradient = SubResource("Gradient_w5ik1")
+joint_mode = 1
+begin_cap_mode = 1

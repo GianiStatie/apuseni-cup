@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameState="*res://src/autoloads/GameState.gd"
 Constants="*res://src/autoloads/Constants.gd"
+Utils="*res://src/autoloads/Utils.gd"
 
 [layer_names]
 

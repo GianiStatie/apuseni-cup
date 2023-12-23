@@ -1,12 +1,14 @@
 extends Area2D
 
+const SnowTrailScene = preload("res://src/effects/trail.tscn")
+
 var should_accelearte = false
 var should_decelerate = false
 
 var strife_left = false
 var strife_right = false
 var is_jumping = false
-
+var prev_trail = null
 
 @onready var sprite_stop = $SpriteStop
 @onready var sprite_move = $SpriteMove
@@ -60,12 +62,14 @@ func _process(_delta):
 		GameState.move_speed_x = -srtife_speed if strife_left else srtife_speed
 	 
 	if is_jumping:
+		stop_trail()
 		return
 	
 	if GameState.move_speed_y <= GameState.min_speed_y:
 		sprite_move.visible = false
 	else:
 		sprite_move.visible = true
+		spawn_trail()
 	
 	if should_accelearte and GameState.move_speed_y < GameState.max_speed_y:
 		GameState.move_speed_y += GameState.acceleartion
@@ -80,3 +84,17 @@ func _on_area_entered(_area):
 
 func _on_finished_jumping():
 	is_jumping = false
+
+func spawn_trail():
+	if prev_trail != null:
+		return
+	
+	prev_trail = SnowTrailScene.instantiate()
+	add_child(prev_trail)
+
+func stop_trail():
+	if prev_trail == null:
+		return
+		
+	prev_trail.stop()
+	prev_trail = null

@@ -11,7 +11,6 @@ extends Node2D
 
 var distance = 0
 var max_player_speed = 0
-
 var accelerate_player = false
 
 
