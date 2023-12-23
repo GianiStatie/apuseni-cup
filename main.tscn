@@ -21,7 +21,8 @@ script = ExtResource("1_bjy5c")
 [node name="Player" parent="." instance=ExtResource("2_jupeb")]
 position = Vector2(576, 216)
 
-[node name="Spawner" type="Node" parent="."]
+[node name="Spawner" type="Node2D" parent="."]
+y_sort_enabled = true
 script = ExtResource("1_7x8jn")
 
 [node name="Background" type="CanvasLayer" parent="."]

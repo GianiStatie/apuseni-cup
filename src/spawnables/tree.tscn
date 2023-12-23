@@ -11,7 +11,9 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_8q0i7")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Variations" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Variations"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_gds3p")
 region_enabled = true

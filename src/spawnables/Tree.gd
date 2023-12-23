@@ -7,6 +7,11 @@ signal exited_screen_on_up(main_group)
 signal exited_screen_on_left(main_group)
 signal exited_screen_on_right(main_group)
 
+func _ready():
+	var variations = $Variations.get_children()
+	variations.shuffle()
+	variations[0].visible = true
+
 func _process(delta):
 	if GameState.game_paused:
 		return

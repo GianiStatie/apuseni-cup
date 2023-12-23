@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 const PersonScene = preload("res://src/spawnables/person.tscn")
 const TreeScene = preload("res://src/spawnables/tree.tscn")
@@ -6,16 +6,15 @@ const TreeScene = preload("res://src/spawnables/tree.tscn")
 var max_trees_per_row = 2
 var object_spawn_x_variation = 0
 
+var nb_of_trees = 4
+var nb_of_people = 4
+
+
 func _ready():
 	# TODO consider recording inputs and letting players compete with after-image
 	#seed(360)
-	for row_idx in range(Constants.max_rows_per_screen):
-		var trees_per_row = random_sample_from_range(1, max_trees_per_row, 1)[0]
-		var trees_columns = random_sample_from_range(0, Constants.max_cols_per_screen, trees_per_row)
-		
-		for column_idx in trees_columns:
-			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
-			_spawn_object_at(tree_position, "Tree")
+	spawn_objects(nb_of_trees, "Tree")
+	spawn_objects(nb_of_people, "Person")
 	
 	object_spawn_x_variation = GameState.x_shift / 2
 
@@ -61,3 +60,21 @@ func _spawn_object_at(tree_position, object_type):
 	object.connect("exited_screen_on_left", _on_object_exited_screen_on_sides.bindv(["left"]))
 	add_child(object)
 	object.global_position = tree_position
+
+func spawn_objects(nb_of_objects, object_type):
+	var trees_per_row = int(nb_of_objects / Constants.max_rows_per_screen)
+	for row_idx in range(Constants.max_rows_per_screen):
+		var trees_columns = random_sample_from_range(0, Constants.max_cols_per_screen, trees_per_row)
+		
+		for column_idx in trees_columns:
+			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
+			_spawn_object_at(tree_position, object_type)
+	
+	var trees_left = nb_of_objects % Constants.max_rows_per_screen
+	var random_rows = random_sample_from_range(0, Constants.max_rows_per_screen, trees_left)
+	for row_idx in random_rows:
+		var trees_columns = random_sample_from_range(0, Constants.max_cols_per_screen, 1)
+		
+		for column_idx in trees_columns:
+			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
+			_spawn_object_at(tree_position, object_type)

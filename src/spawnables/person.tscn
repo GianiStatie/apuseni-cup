@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c28ymciy6hmiu"]
+[gd_scene load_steps=5 format=3 uid="uid://c28ymciy6hmiu"]
 
 [ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_qwcy8"]
 [ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_58oss"]
+[ext_resource type="Texture2D" uid="uid://c758bk07wo607" path="res://assets/sprites/tilemap_snug_bonus.png" id="3_8avl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(17, 16)
@@ -11,11 +12,27 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_qwcy8")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Variations" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Variations"]
 scale = Vector2(2, 2)
 texture = ExtResource("2_58oss")
 region_enabled = true
-region_rect = Rect2(176, 96, 16, 16)
+region_rect = Rect2(160, 96, 16, 16)
+
+[node name="Sprite2" type="Sprite2D" parent="Variations"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_8avl0")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="Sprite3" type="Sprite2D" parent="Variations"]
+visible = false
+scale = Vector2(2, 2)
+texture = ExtResource("3_8avl0")
+region_enabled = true
+region_rect = Rect2(0, 16, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
