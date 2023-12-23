@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c28ymciy6hmiu"]
+[gd_scene load_steps=6 format=3 uid="uid://c28ymciy6hmiu"]
 
 [ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_qwcy8"]
 [ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_58oss"]
 [ext_resource type="Texture2D" uid="uid://c758bk07wo607" path="res://assets/sprites/tilemap_snug_bonus.png" id="3_8avl0"]
+[ext_resource type="PackedScene" uid="uid://cyrkrgkdguess" path="res://src/effects/trail.tscn" id="4_blulh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(17, 16)
@@ -11,6 +12,7 @@ size = Vector2(17, 16)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_qwcy8")
+has_bonus_speed = true
 
 [node name="Variations" type="Node2D" parent="."]
 
@@ -37,3 +39,6 @@ region_rect = Rect2(0, 16, 16, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rf8ue")
+
+[node name="TrailEffect" parent="." instance=ExtResource("4_blulh")]
+is_npc = true

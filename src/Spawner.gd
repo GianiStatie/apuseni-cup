@@ -18,31 +18,17 @@ func _ready():
 	
 	object_spawn_x_variation = GameState.x_shift / 2
 
-func random_sample_from_range(from, to, ammount):
-	var arr = []
-	if from < 0:
-		for x in range(0, abs(from)):
-			arr.append(-x)
-		from = 0
-	arr += Array(range(from, to))
-	arr.shuffle()
-	
-	var samples = []
-	for i in range(ammount):
-		samples.append(arr.pop_at(0))
-	return samples
-
 func _on_object_exited_screen_on_up(object_type):
 	var row_idx = Constants.max_rows_per_screen + 1
-	var column_idx = random_sample_from_range(0, Constants.max_cols_per_screen, 1)[0]
+	var column_idx = Utils.random_sample_from_range(0, Constants.max_cols_per_screen, 1)[0]
 	
 	var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
-	var x_variation_amount = random_sample_from_range(-object_spawn_x_variation, object_spawn_x_variation, 1)[0]
+	var x_variation_amount = Utils.random_sample_from_range(-object_spawn_x_variation, object_spawn_x_variation, 1)[0]
 	tree_position += Vector2(x_variation_amount, 0)
 	_spawn_object_at(tree_position, object_type)
 
 func _on_object_exited_screen_on_sides(object_type, direction):
-	var row_idx = random_sample_from_range(0, Constants.max_rows_per_screen, 1)[0]
+	var row_idx = Utils.random_sample_from_range(0, Constants.max_rows_per_screen, 1)[0]
 	var column_idx = 0 if direction == "right" else Constants.max_cols_per_screen - 1
 	
 	var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
@@ -64,16 +50,16 @@ func _spawn_object_at(tree_position, object_type):
 func spawn_objects(nb_of_objects, object_type):
 	var trees_per_row = int(nb_of_objects / Constants.max_rows_per_screen)
 	for row_idx in range(Constants.max_rows_per_screen):
-		var trees_columns = random_sample_from_range(0, Constants.max_cols_per_screen, trees_per_row)
+		var trees_columns = Utils.random_sample_from_range(0, Constants.max_cols_per_screen, trees_per_row)
 		
 		for column_idx in trees_columns:
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
 			_spawn_object_at(tree_position, object_type)
 	
 	var trees_left = nb_of_objects % Constants.max_rows_per_screen
-	var random_rows = random_sample_from_range(0, Constants.max_rows_per_screen, trees_left)
+	var random_rows = Utils.random_sample_from_range(0, Constants.max_rows_per_screen, trees_left)
 	for row_idx in random_rows:
-		var trees_columns = random_sample_from_range(0, Constants.max_cols_per_screen, 1)
+		var trees_columns = Utils.random_sample_from_range(0, Constants.max_cols_per_screen, 1)
 		
 		for column_idx in trees_columns:
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)

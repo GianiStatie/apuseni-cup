@@ -4,10 +4,32 @@ const MAX_POINTS: int = 100
 var past_locations = []
 var is_stopped = false
 
+@export var is_npc = false
+
 func _process(delta):
 	if GameState.game_over:
 		return
 	
+	if is_npc:
+		apply_npc_logic(delta)
+	else:
+		apply_player_logic(delta)
+
+func stop():
+	is_stopped = true
+
+func apply_npc_logic(delta):
+	for point_idx in len(past_locations):
+		past_locations[point_idx] -= Vector2(0, GameState.move_speed_y) * delta
+	
+	if len(past_locations) > MAX_POINTS:
+		past_locations.pop_at(0)
+	past_locations.append(Vector2.ZERO)
+	
+	$TrailLeft.points = past_locations
+	$TrailRight.points = past_locations
+
+func apply_player_logic(delta):
 	for point_idx in len(past_locations):
 		past_locations[point_idx] -= Vector2(GameState.move_speed_x, GameState.move_speed_y) * delta
 	
@@ -18,6 +40,3 @@ func _process(delta):
 	
 	$TrailLeft.points = past_locations
 	$TrailRight.points = past_locations
-
-func stop():
-	is_stopped = true

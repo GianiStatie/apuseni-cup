@@ -3,6 +3,11 @@ extends Area2D
 var margin_px = 32
 var on_screen = true
 
+@export var has_bonus_speed = false
+var bonus_speed_min = 10
+var bonus_speed_max = 100
+var bonus_speed = 0
+
 signal exited_screen_on_up(main_group)
 signal exited_screen_on_left(main_group)
 signal exited_screen_on_right(main_group)
@@ -11,11 +16,15 @@ func _ready():
 	var variations = $Variations.get_children()
 	variations.shuffle()
 	variations[0].visible = true
+	if has_bonus_speed:
+		bonus_speed = Utils.random_sample_from_range(bonus_speed_min, bonus_speed_max, 1)[0]
 
 func _process(delta):
 	if GameState.game_paused:
 		return
-	position -= Vector2(GameState.move_speed_x, GameState.move_speed_y) * delta
+	
+	var move_speed = Vector2(GameState.move_speed_x, GameState.move_speed_y) - Vector2(0, bonus_speed)
+	position -= move_speed * delta
 	
 	if global_position.y < -margin_px:
 		_on_exited_viewport_vertically()
