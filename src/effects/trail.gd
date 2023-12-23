@@ -7,7 +7,7 @@ var is_stopped = false
 @export var is_npc = false
 
 func _process(delta):
-	if GameState.game_over:
+	if GameState.game_over or GameState.game_paused:
 		return
 	
 	if is_npc:
@@ -19,11 +19,10 @@ func stop():
 	is_stopped = true
 
 func apply_npc_logic(delta):
-	if GameState.move_speed_y < 50:
-		return
+	var npc_speed = owner.bonus_speed
 	
 	for point_idx in len(past_locations):
-		past_locations[point_idx] -= Vector2(0, GameState.move_speed_y) * delta
+		past_locations[point_idx] -= Vector2(0, npc_speed) * delta
 	
 	if len(past_locations) > MAX_POINTS and GameState.move_speed_y:
 		past_locations.pop_at(0)

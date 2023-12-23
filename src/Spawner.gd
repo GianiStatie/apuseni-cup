@@ -13,8 +13,8 @@ var nb_of_people = 4
 func _ready():
 	# TODO consider recording inputs and letting players compete with after-image
 	#seed(360)
-	spawn_objects(nb_of_trees, "Tree")
-	spawn_objects(nb_of_people, "Person")
+	spawn_objects(nb_of_trees, "Tree", 3)
+	spawn_objects(nb_of_people, "Person", 3)
 	
 	object_spawn_x_variation = GameState.x_shift / 2
 
@@ -47,9 +47,9 @@ func _spawn_object_at(tree_position, object_type):
 	add_child(object)
 	object.global_position = tree_position
 
-func spawn_objects(nb_of_objects, object_type):
+func spawn_objects(nb_of_objects, object_type, min_row):
 	var trees_per_row = int(nb_of_objects / Constants.max_rows_per_screen)
-	for row_idx in range(Constants.max_rows_per_screen):
+	for row_idx in range(min_row, Constants.max_rows_per_screen):
 		var trees_columns = Utils.random_sample_from_range(0, Constants.max_cols_per_screen, trees_per_row)
 		
 		for column_idx in trees_columns:
@@ -57,7 +57,7 @@ func spawn_objects(nb_of_objects, object_type):
 			_spawn_object_at(tree_position, object_type)
 	
 	var trees_left = nb_of_objects % Constants.max_rows_per_screen
-	var random_rows = Utils.random_sample_from_range(0, Constants.max_rows_per_screen, trees_left)
+	var random_rows = Utils.random_sample_from_range(min_row, Constants.max_rows_per_screen, trees_left)
 	for row_idx in random_rows:
 		var trees_columns = Utils.random_sample_from_range(0, Constants.max_cols_per_screen, 1)
 		

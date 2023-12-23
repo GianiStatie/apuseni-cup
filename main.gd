@@ -13,10 +13,15 @@ var distance = 0
 var max_player_speed = 0
 var accelerate_player = false
 
+var main_theme_time = 3
+
 
 func _input(event):
 	if event.is_action_pressed("ui_accept") and %TutorialScreen.visible:
 		_on_tutorial_button_button_down()
+	#if event.is_action_pressed("ui_cancel"):
+		#main_theme_time = $MainTheme.get_playback_position()
+		#GameState.game_paused = not GameState.game_paused
 
 func _ready():
 	if GameState.seen_tutorial:
@@ -52,7 +57,7 @@ func _on_player_player_hit_obstacle():
 	end_screen._on_game_over()
 
 func _on_player_player_started_game():
-	main_theme.play(3)
+	main_theme.play(main_theme_time)
 
 func _on_tutorial_button_button_down():
 	GameState.seen_tutorial = true

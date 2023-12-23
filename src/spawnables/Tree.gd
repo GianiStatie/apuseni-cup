@@ -6,8 +6,8 @@ var on_screen = true
 @export var has_bonus_speed = false
 @export var is_spectator = false
 
-var bonus_speed_min = 10
-var bonus_speed_max = 100
+var bonus_speed_min = 50
+var bonus_speed_max = 120
 var bonus_speed = 0
 
 signal exited_screen_on_up(main_group)

@@ -22,6 +22,10 @@ func random_sample_from_range(from, to, ammount):
 	arr.shuffle()
 	
 	var samples = []
-	for i in range(ammount):
-		samples.append(arr.pop_at(0))
+	while len(samples) < ammount:
+		var arr_copy = arr.duplicate()
+		for i in range(ammount):
+			var value = arr_copy.pop_at(0)
+			if value != null:
+				samples.append(value)
 	return samples

@@ -12,6 +12,7 @@ var highscore = 0
 
 var move_speed_x = 0
 var move_speed_y = 20
+var game_started = false
 var game_paused = true
 var game_over = false
 
@@ -34,6 +35,7 @@ func reset_state():
 	completion = 0
 	max_player_speed = 0
 	
+	game_started = false
 	game_paused = true
 	game_over = false
 	move_speed_y = 20
