@@ -136,7 +136,13 @@ wait_time = 17.5
 one_shot = true
 autostart = true
 
+[node name="Level2" type="Timer" parent="."]
+wait_time = 34.0
+one_shot = true
+autostart = true
+
 [connection signal="player_hit_obstacle" from="Player" to="." method="_on_player_player_hit_obstacle"]
 [connection signal="player_started_game" from="Player" to="." method="_on_player_player_started_game"]
 [connection signal="button_down" from="UI/TutorialScreen/VBoxContainer/MarginContainer/TutorialButton" to="." method="_on_tutorial_button_button_down"]
 [connection signal="timeout" from="Level1" to="." method="_on_level_1_timeout"]
+[connection signal="timeout" from="Level2" to="." method="_on_level_2_timeout"]

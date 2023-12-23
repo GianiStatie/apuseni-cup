@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c28ymciy6hmiu"]
+
+[ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_qwcy8"]
+[ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_58oss"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
+size = Vector2(17, 16)
+
+[node name="Person" type="Area2D" groups=["Person"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_qwcy8")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_58oss")
+region_enabled = true
+region_rect = Rect2(176, 96, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_rf8ue")

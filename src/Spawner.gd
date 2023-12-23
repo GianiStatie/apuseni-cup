@@ -1,5 +1,6 @@
 extends Node
 
+const PersonScene = preload("res://src/spawnables/person.tscn")
 const TreeScene = preload("res://src/spawnables/tree.tscn")
 
 var max_trees_per_row = 2
@@ -14,7 +15,7 @@ func _ready():
 		
 		for column_idx in trees_columns:
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
-			_spawn_tree_at(tree_position)
+			_spawn_object_at(tree_position, "Tree")
 	
 	object_spawn_x_variation = GameState.x_shift / 2
 
@@ -32,26 +33,31 @@ func random_sample_from_range(from, to, ammount):
 		samples.append(arr.pop_at(0))
 	return samples
 
-func _on_object_exited_screen_on_up():
+func _on_object_exited_screen_on_up(object_type):
 	var row_idx = Constants.max_rows_per_screen + 1
 	var column_idx = random_sample_from_range(0, Constants.max_cols_per_screen, 1)[0]
 	
 	var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
 	var x_variation_amount = random_sample_from_range(-object_spawn_x_variation, object_spawn_x_variation, 1)[0]
 	tree_position += Vector2(x_variation_amount, 0)
-	_spawn_tree_at(tree_position)
+	_spawn_object_at(tree_position, object_type)
 
-func _on_object_exited_screen_on_sides(direction):
+func _on_object_exited_screen_on_sides(object_type, direction):
 	var row_idx = random_sample_from_range(0, Constants.max_rows_per_screen, 1)[0]
 	var column_idx = 0 if direction == "right" else Constants.max_cols_per_screen - 1
 	
 	var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
-	_spawn_tree_at(tree_position)
+	_spawn_object_at(tree_position, object_type)
 
-func _spawn_tree_at(tree_position):
-	var tree_object = TreeScene.instantiate()
-	tree_object.connect("exited_screen_on_up", _on_object_exited_screen_on_up)
-	tree_object.connect("exited_screen_on_right", _on_object_exited_screen_on_sides.bind("right"))
-	tree_object.connect("exited_screen_on_left", _on_object_exited_screen_on_sides.bind("left"))
-	add_child(tree_object)
-	tree_object.global_position = tree_position
+func _spawn_object_at(tree_position, object_type):
+	var object = null
+	if object_type == "Tree":
+		object = TreeScene.instantiate()
+	elif object_type == "Person":
+		object = PersonScene.instantiate()
+	
+	object.connect("exited_screen_on_up", _on_object_exited_screen_on_up)
+	object.connect("exited_screen_on_right", _on_object_exited_screen_on_sides.bindv(["right"]))
+	object.connect("exited_screen_on_left", _on_object_exited_screen_on_sides.bindv(["left"]))
+	add_child(object)
+	object.global_position = tree_position

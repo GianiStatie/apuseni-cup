@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://81xjq4l4ksk6"]
 
 [ext_resource type="Script" path="res://src/player/Player.gd" id="2_k5ly4"]
-[ext_resource type="Texture2D" uid="uid://b60e0ehsbvf74" path="res://assets/sprites/tilemap.png" id="2_mbgyi"]
+[ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_vqm2b"]
 [ext_resource type="AudioStream" uid="uid://dhiq8f0hu56fg" path="res://assets/sounds/Oof Sound Effect (No Copyright).mp3" id="3_blgwq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6np"]
@@ -65,16 +65,16 @@ script = ExtResource("2_k5ly4")
 
 [node name="SpriteStop" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_mbgyi")
+texture = ExtResource("2_vqm2b")
 region_enabled = true
-region_rect = Rect2(170, 85, 16, 16)
+region_rect = Rect2(160, 80, 16, 16)
 
 [node name="SpriteMove" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(2, 2)
-texture = ExtResource("2_mbgyi")
+texture = ExtResource("2_vqm2b")
 region_enabled = true
-region_rect = Rect2(187, 85, 16, 16)
+region_rect = Rect2(176, 80, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)

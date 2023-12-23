@@ -1,29 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwod4tkxd1soh"]
 
 [ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_8q0i7"]
-[ext_resource type="Texture2D" uid="uid://b60e0ehsbvf74" path="res://assets/sprites/tilemap.png" id="2_jde5n"]
+[ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_gds3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(32, 32)
 
-[node name="Tree" type="Area2D"]
+[node name="Tree" type="Area2D" groups=["Tree"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_8q0i7")
 
-[node name="TreeTopSprite" type="Sprite2D" parent="."]
-position = Vector2(0, 16)
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
-texture = ExtResource("2_jde5n")
+texture = ExtResource("2_gds3p")
 region_enabled = true
-region_rect = Rect2(102, 17, 16, 16)
-
-[node name="TreeSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
-scale = Vector2(2, 2)
-texture = ExtResource("2_jde5n")
-region_enabled = true
-region_rect = Rect2(102, 0, 16, 16)
+region_rect = Rect2(96, 0, 16, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)

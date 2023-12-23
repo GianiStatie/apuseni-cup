@@ -3,6 +3,10 @@ extends Node
 var min_speed_y = 10
 var max_speed_y = 1500
 
+var acceleartion = 5
+var deceleration = 10
+var strife_perc = 0.5
+
 var seen_tutorial = false
 var highscore = 0
 

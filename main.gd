@@ -12,6 +12,9 @@ extends Node2D
 var distance = 0
 var max_player_speed = 0
 
+var accelerate_player = false
+
+
 func _input(event):
 	if event.is_action_pressed("ui_accept") and %TutorialScreen.visible:
 		_on_tutorial_button_button_down()
@@ -34,6 +37,9 @@ func _process(_delta):
 	# TODO: add celebration for 100% complete
 	if distance == max_distance:
 		_on_player_player_hit_obstacle()
+	
+	if accelerate_player and int(GameState.total_time * 10) % 10 == 0:
+		GameState.move_speed_y += GameState.acceleartion
 
 func _on_player_player_hit_obstacle():
 	GameState.completion = (distance / max_distance) * 100
@@ -55,4 +61,7 @@ func _on_tutorial_button_button_down():
 	%Time.visible = true
 
 func _on_level_1_timeout():
-	print('level 1 completed')
+	accelerate_player = true
+
+func _on_level_2_timeout():
+	GameState.acceleartion += 15

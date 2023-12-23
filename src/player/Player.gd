@@ -7,9 +7,6 @@ var strife_left = false
 var strife_right = false
 var is_jumping = false
 
-var acceleartion = 5
-var deceleration = 10
-var strife_perc = 0.5
 
 @onready var sprite_stop = $SpriteStop
 @onready var sprite_move = $SpriteMove
@@ -59,9 +56,9 @@ func _process(_delta):
 	if strife_right == strife_left:
 		GameState.move_speed_x = 0
 	else:
-		var srtife_speed = strife_perc * GameState.move_speed_y
+		var srtife_speed = GameState.strife_perc * GameState.move_speed_y
 		GameState.move_speed_x = -srtife_speed if strife_left else srtife_speed
-	
+	 
 	if is_jumping:
 		return
 	
@@ -71,10 +68,9 @@ func _process(_delta):
 		sprite_move.visible = true
 	
 	if should_accelearte and GameState.move_speed_y < GameState.max_speed_y:
-		GameState.move_speed_y += acceleartion
+		GameState.move_speed_y += GameState.acceleartion
 	if should_decelerate and GameState.move_speed_y > GameState.min_speed_y:
-		GameState.move_speed_y -= deceleration
-
+		GameState.move_speed_y -= GameState.deceleration
 
 func _on_area_entered(_area):
 	if not GameState.game_over:

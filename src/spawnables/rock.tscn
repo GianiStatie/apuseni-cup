@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cainco0xr5uw1"]
-
-[ext_resource type="Texture2D" uid="uid://cepfg2qsnk2vh" path="res://icon.svg" id="1_kmdwa"]
-
-[node name="Rock" type="Sprite2D"]
-modulate = Color(0.639216, 0.286275, 1, 1)
-position = Vector2(0, 8)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_kmdwa")
