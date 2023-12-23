@@ -19,10 +19,13 @@ func stop():
 	is_stopped = true
 
 func apply_npc_logic(delta):
+	if GameState.move_speed_y < 50:
+		return
+	
 	for point_idx in len(past_locations):
 		past_locations[point_idx] -= Vector2(0, GameState.move_speed_y) * delta
 	
-	if len(past_locations) > MAX_POINTS:
+	if len(past_locations) > MAX_POINTS and GameState.move_speed_y:
 		past_locations.pop_at(0)
 	past_locations.append(Vector2.ZERO)
 	

@@ -4,6 +4,8 @@ var margin_px = 32
 var on_screen = true
 
 @export var has_bonus_speed = false
+@export var is_spectator = false
+
 var bonus_speed_min = 10
 var bonus_speed_max = 100
 var bonus_speed = 0
@@ -16,11 +18,18 @@ func _ready():
 	var variations = $Variations.get_children()
 	variations.shuffle()
 	variations[0].visible = true
+	
+	if is_spectator:
+		var random_delay = Utils.random_sample_from_range(0, 5, 1)[0] / 10.0
+		await get_tree().create_timer(random_delay).timeout
+		$TrailEffect.visible = false
+		$AnimationPlayer.play("Cheer")
+	
 	if has_bonus_speed:
 		bonus_speed = Utils.random_sample_from_range(bonus_speed_min, bonus_speed_max, 1)[0]
 
 func _process(delta):
-	if GameState.game_paused:
+	if GameState.game_paused or is_spectator:
 		return
 	
 	var move_speed = Vector2(GameState.move_speed_x, GameState.move_speed_y) - Vector2(0, bonus_speed)

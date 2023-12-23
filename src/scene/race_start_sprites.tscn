@@ -1,0 +1,144 @@
+[gd_scene load_steps=10 format=3 uid="uid://cprbr1hviv3e2"]
+
+[ext_resource type="PackedScene" uid="uid://c28ymciy6hmiu" path="res://src/spawnables/person.tscn" id="1_3qhwi"]
+[ext_resource type="Script" path="res://src/scene/RaceStartSprites.gd" id="1_alow5"]
+[ext_resource type="Texture2D" uid="uid://c758bk07wo607" path="res://assets/sprites/tilemap_snug_bonus.png" id="1_vlsji"]
+[ext_resource type="Texture2D" uid="uid://bsr0gme8yjqq" path="res://assets/sprites/sponsors/heits-digital.png" id="2_eg8jb"]
+[ext_resource type="Texture2D" uid="uid://de562p6s86tj" path="res://assets/sprites/sponsors/buscat.png" id="3_f5fdc"]
+[ext_resource type="Texture2D" uid="uid://blvuooiysd2m0" path="res://assets/sprites/sponsors/outdoor-pro.jpeg" id="4_cud3f"]
+[ext_resource type="Texture2D" uid="uid://bj0k3s4lo2mdt" path="res://assets/sprites/sponsors/vitamin-aqua.png" id="5_e23q8"]
+[ext_resource type="Texture2D" uid="uid://ba4vc5vxqv2v0" path="res://assets/sprites/sponsors/apex.png" id="6_wb2tl"]
+[ext_resource type="Texture2D" uid="uid://bxcb5hbkbp8wv" path="res://assets/sprites/sponsors/aass.png" id="7_754p6"]
+
+[node name="RaceStartSprites" type="Node2D"]
+script = ExtResource("1_alow5")
+
+[node name="Person" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(200, 56)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person2" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(245, 73)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person3" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(337, 54)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person4" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(427, 71)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person5" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(112, 56)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person6" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(912, 56)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person7" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(800, 72)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person8" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(750, 57)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person9" parent="." instance=ExtResource("1_3qhwi")]
+position = Vector2(1016, 78)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Start" type="Sprite2D" parent="."]
+position = Vector2(576, 120)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(32, 16, 80, 48)
+
+[node name="Sponsor1" type="Sprite2D" parent="."]
+position = Vector2(384, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="HEITS" type="Sprite2D" parent="Sponsor1"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("2_eg8jb")
+
+[node name="Sponsor2" type="Sprite2D" parent="."]
+position = Vector2(232, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="Buscat" type="Sprite2D" parent="Sponsor2"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("3_f5fdc")
+
+[node name="Sponsor3" type="Sprite2D" parent="."]
+position = Vector2(921, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="OutdoorPro" type="Sprite2D" parent="Sponsor3"]
+position = Vector2(0, -0.666748)
+scale = Vector2(0.0390413, 0.0390413)
+texture = ExtResource("4_cud3f")
+
+[node name="Sponsor4" type="Sprite2D" parent="."]
+position = Vector2(768, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="VitaminAqua" type="Sprite2D" parent="Sponsor4"]
+position = Vector2(0, -0.333496)
+scale = Vector2(0.00860029, 0.00860029)
+texture = ExtResource("5_e23q8")
+
+[node name="Sponsor5" type="Sprite2D" parent="."]
+position = Vector2(80, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="ApexAcademy" type="Sprite2D" parent="Sponsor5"]
+position = Vector2(0, -0.333252)
+scale = Vector2(0.0130215, 0.0130215)
+texture = ExtResource("6_wb2tl")
+
+[node name="Sponsor6" type="Sprite2D" parent="."]
+position = Vector2(1072, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="AAS" type="Sprite2D" parent="Sponsor6"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.0298994, 0.0298994)
+texture = ExtResource("7_754p6")

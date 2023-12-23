@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv2oa7jeduxmj"]
+[gd_scene load_steps=11 format=3 uid="uid://dv2oa7jeduxmj"]
 
 [ext_resource type="Script" path="res://src/Spawner.gd" id="1_7x8jn"]
 [ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
 [ext_resource type="PackedScene" uid="uid://81xjq4l4ksk6" path="res://src/player/player.tscn" id="2_jupeb"]
+[ext_resource type="PackedScene" uid="uid://cprbr1hviv3e2" path="res://src/scene/race_start_sprites.tscn" id="4_0r2i8"]
 [ext_resource type="Script" path="res://Timer.gd" id="4_cbk4s"]
 [ext_resource type="PackedScene" uid="uid://bkua7eblr7mjy" path="res://src/ui/end_screen.tscn" id="5_e0xiv"]
 [ext_resource type="Texture2D" uid="uid://cbb4a64ni8gv7" path="res://assets/screens/tutorial-export1.png" id="6_11frj"]
@@ -24,6 +25,9 @@ position = Vector2(576, 216)
 [node name="Spawner" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("1_7x8jn")
+
+[node name="RaceStartSprites" parent="." instance=ExtResource("4_0r2i8")]
+position = Vector2(0, 64)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1

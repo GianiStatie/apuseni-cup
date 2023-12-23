@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c28ymciy6hmiu"]
+[gd_scene load_steps=9 format=3 uid="uid://c28ymciy6hmiu"]
 
 [ext_resource type="Script" path="res://src/spawnables/Tree.gd" id="1_qwcy8"]
 [ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="2_58oss"]
@@ -8,6 +8,44 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(17, 16)
 
+[sub_resource type="Animation" id="Animation_rp3hk"]
+resource_name = "Cheer"
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Variations:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-4, -8), Vector2(0, 0), Vector2(4, -8), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kl0md"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Variations:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mge2h"]
+_data = {
+"Cheer": SubResource("Animation_rp3hk"),
+"RESET": SubResource("Animation_kl0md")
+}
+
 [node name="Person" type="Area2D" groups=["Person"]]
 collision_layer = 2
 collision_mask = 0
@@ -15,6 +53,7 @@ script = ExtResource("1_qwcy8")
 has_bonus_speed = true
 
 [node name="Variations" type="Node2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="Variations"]
 scale = Vector2(2, 2)
@@ -42,3 +81,9 @@ shape = SubResource("RectangleShape2D_rf8ue")
 
 [node name="TrailEffect" parent="." instance=ExtResource("4_blulh")]
 is_npc = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_mge2h")
+}
+speed_scale = 2.0
