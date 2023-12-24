@@ -8,7 +8,7 @@ func _input(event):
 func _on_game_over():
 	visible = true
 	
-	var score = int(Constants.max_score * GameState.completion / 100 - GameState.total_time)
+	var score = int(Constants.max_score * GameState.completion * GameState.total_distance / 1000)
 	
 	if GameState.highscore < score:
 		GameState.highscore = score
