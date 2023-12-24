@@ -14,6 +14,7 @@ var accelerate_player = false
 
 var main_theme_time = 3
 var main_theme_total_time = 2 * 60 + 32
+var stone_type = "Stone"
 var spawned_end_screen = false
 
 func _ready():
@@ -101,16 +102,47 @@ func _on_level_1_timeout():
 	if GameState.game_over:
 		return
 	accelerate_player = true
-	show_warning("The Slope Steepens")
+	show_warning("Steeper Slopes")
 
 func _on_level_2_timeout():
 	if GameState.game_over:
 		return
 	GameState.acceleartion += 5
-	show_warning("The Slope Steepens")
+	show_warning("Steeper Slopes")
+
+func _on_level_3_timeout():
+	if GameState.game_over:
+		return
+	show_warning("Stones")
+	$DependentTimers/StoneSpawner.start()
+
+func _on_level_4_timeout():
+	if GameState.game_over:
+		return
+	show_warning("Bigger Stones")
+	stone_type = "BiggerStone"
+
+func _on_level_5_timeout():
+	if GameState.game_over:
+		return
+	spawner.stop_spawing_people = true
+	spawner.spawn_object_at_beggining("Yeti", true)
+	show_warning("Yeti")
+
+func _on_level_6_timeout():
+	if GameState.game_over:
+		return
+	GameState.acceleartion += 5
+	show_warning("Steeper Slopes")
 
 func _on_ramp_spawner_timeout():
 	if GameState.game_over:
 		return
 	spawner.spawn_object_at_end("Ramp", true)
 	$Timers/RampSpawner.start()
+
+func _on_stone_spawner_timeout():
+	if GameState.game_over or stone_type == null:
+		return
+	spawner.spawn_object_at_end(stone_type, true)
+	$DependentTimers/StoneSpawner.start()

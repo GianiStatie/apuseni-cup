@@ -26,6 +26,9 @@ var bonus_points = 0
 @onready var x_shift = viewport_size.x / (Constants.max_cols_per_screen - 1)
 @onready var y_shift = viewport_size.y / (Constants.max_rows_per_screen - 1)
 
+@onready var player_x = (Constants.max_cols_per_screen - 1) * x_shift / 2
+@onready var player_y = (Constants.max_rows_per_screen - 1) * y_shift / 3 
+
 func _on_reset_button_pressed():
 	reset_state()
 	get_tree().reload_current_scene()

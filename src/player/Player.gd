@@ -20,6 +20,9 @@ signal player_started_game
 signal player_hit_obstacle
 
 
+func _ready():
+	position = Vector2(GameState.player_x, GameState.player_y)
+
 func _input(event):
 	if not GameState.seen_tutorial or GameState.game_over:
 		return
@@ -83,13 +86,17 @@ func jump():
 func _on_area_entered(area):
 	if "Ramp" in area.get_groups():
 		_on_hit_ramp()
-	elif "Obstacle" in area.get_groups() and not GameState.game_over:
-		GameState.move_speed_x = 0
-		oof_sound.play(0.2)
-		player_hit_obstacle.emit()
+	elif "Obstacle" in area.get_groups():
+		if "Jumpable" in area.get_groups() and is_jumping:
+			get_points()
+			return
+		if not GameState.game_over:
+			GameState.move_speed_x = 0
+			oof_sound.play(0.2)
+			player_hit_obstacle.emit()
 
 func _on_hit_ramp():
-	$CoinEffect.play(0.3)
+	get_points()
 	jump()
 
 func _on_finished_jumping():
@@ -108,3 +115,7 @@ func stop_trail():
 		
 	prev_trail.stop()
 	prev_trail = null
+
+func get_points():
+	GameState.bonus_points += 200
+	$CoinEffect.play(0.3)

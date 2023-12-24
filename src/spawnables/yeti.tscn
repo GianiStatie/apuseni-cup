@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://brls76l0kp5m8"]
+
+[ext_resource type="Script" path="res://src/spawnables/Yeti.gd" id="1_52ymc"]
+[ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="1_h88wy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbc0r"]
+atlas = ExtResource("1_h88wy")
+region = Rect2(96, 96, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo3x8"]
+atlas = ExtResource("1_h88wy")
+region = Rect2(112, 96, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sefx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbc0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo3x8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6adn"]
+size = Vector2(16, 16)
+
+[node name="Yeti" type="Area2D" groups=["Obstacle"]]
+scale = Vector2(3, 3)
+collision_layer = 2
+script = ExtResource("1_52ymc")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sefx7")
+autoplay = "default"
+frame_progress = 0.726509
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_h88wy")
+region_enabled = true
+region_rect = Rect2(128, 96, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h6adn")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

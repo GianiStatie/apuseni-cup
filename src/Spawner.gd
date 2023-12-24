@@ -3,6 +3,9 @@ extends Node2D
 const PersonScene = preload("res://src/spawnables/person.tscn")
 const TreeScene = preload("res://src/spawnables/tree.tscn")
 const RampScene = preload("res://src/spawnables/ramp.tscn")
+const StoneScene = preload("res://src/spawnables/stone.tscn")
+const BiggerStoneScene = preload("res://src/spawnables/bigger_stone.tscn")
+const YetiScene = preload("res://src/spawnables/yeti.tscn")
 
 const RaceEndScene = preload("res://src/scene/race_end_sprites.tscn")
 
@@ -11,7 +14,7 @@ var object_spawn_x_variation = 0
 
 var nb_of_trees = 4
 var nb_of_people = 4
-
+var stop_spawing_people = false
 
 func _ready():
 	# TODO consider recording inputs and letting players compete with after-image
@@ -42,6 +45,8 @@ func _spawn_object_at(tree_position, object_type):
 	if "Tree" in object_type:
 		object = TreeScene.instantiate()
 	elif "Person" in object_type:
+		if stop_spawing_people:
+			return
 		object = PersonScene.instantiate()
 	
 	object.connect("exited_screen_on_up", _on_object_exited_screen_on_up)
@@ -74,12 +79,38 @@ func spawn_object_at_end(object_type, random_positions=false):
 		object = RaceEndScene.instantiate()
 	elif object_type == "Ramp":
 		object = RampScene.instantiate()
+	elif object_type == "Stone":
+		object = StoneScene.instantiate()
+	elif object_type == "BiggerStone":
+		object = BiggerStoneScene.instantiate()
 	
 	add_child(object)
 	
 	var col_idx = int(Constants.max_cols_per_screen / 2)
+	var pos_x = col_idx * GameState.x_shift
+	
 	if random_positions:
+		var x_variation_amount = Utils.random_sample_from_range(-object_spawn_x_variation, object_spawn_x_variation, 1)[0]
 		col_idx = Utils.random_sample_from_range(col_idx - 1, col_idx + 1, 1)[0]
-	var pos_x = col_idx  * GameState.x_shift
+		pos_x = col_idx * GameState.x_shift + x_variation_amount
+	
 	var pos_y = Constants.max_rows_per_screen * GameState.y_shift
+	object.global_position = Vector2(pos_x, pos_y)
+
+func spawn_object_at_beggining(object_type, random_positions=false):
+	var object = null
+	if object_type == "Yeti":
+		object = YetiScene.instantiate()
+	
+	add_child(object)
+	
+	var col_idx = int(Constants.max_cols_per_screen / 2)
+	var pos_x = col_idx * GameState.x_shift
+	
+	if random_positions:
+		var x_variation_amount = Utils.random_sample_from_range(-object_spawn_x_variation, object_spawn_x_variation, 1)[0]
+		col_idx = Utils.random_sample_from_range(col_idx - 1, col_idx + 1, 1)[0]
+		pos_x = col_idx * GameState.x_shift + x_variation_amount
+	
+	var pos_y = -1 * GameState.y_shift
 	object.global_position = Vector2(pos_x, pos_y)

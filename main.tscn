@@ -58,12 +58,12 @@ frame_1/duration = 1.0
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bjy5c")
 
-[node name="Player" parent="." instance=ExtResource("2_jupeb")]
-position = Vector2(576, 216)
-
 [node name="Spawner" type="Node2D" parent="."]
 y_sort_enabled = true
 script = ExtResource("1_7x8jn")
+
+[node name="Player" parent="Spawner" instance=ExtResource("2_jupeb")]
+position = Vector2(576, 216)
 
 [node name="RaceStartSprites" parent="." instance=ExtResource("4_0r2i8")]
 y_sort_enabled = true
@@ -99,12 +99,16 @@ text = "Press Down Arrow to Start"
 horizontal_alignment = 1
 script = ExtResource("4_cbk4s")
 
+[node name="HSeparator" type="HSeparator" parent="UI/MarginContainer2/VBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 64
+
 [node name="Warning" type="Label" parent="UI/MarginContainer2/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/font_size = 24
 text = "aaasss"
@@ -266,16 +270,42 @@ one_shot = true
 wait_time = 34.0
 one_shot = true
 
+[node name="Level3" type="Timer" parent="Timers"]
+wait_time = 51.0
+one_shot = true
+
+[node name="Level4" type="Timer" parent="Timers"]
+wait_time = 84.0
+one_shot = true
+
+[node name="Level5" type="Timer" parent="Timers"]
+wait_time = 98.0
+one_shot = true
+
+[node name="Level6" type="Timer" parent="Timers"]
+wait_time = 111.0
+one_shot = true
+
 [node name="RampSpawner" type="Timer" parent="Timers"]
 wait_time = 8.5
 one_shot = true
 
-[connection signal="player_hit_obstacle" from="Player" to="." method="_on_player_player_hit_obstacle"]
-[connection signal="player_started_game" from="Player" to="." method="_on_player_player_started_game"]
+[node name="DependentTimers" type="Node" parent="."]
+
+[node name="StoneSpawner" type="Timer" parent="DependentTimers"]
+one_shot = true
+
+[connection signal="player_hit_obstacle" from="Spawner/Player" to="." method="_on_player_player_hit_obstacle"]
+[connection signal="player_started_game" from="Spawner/Player" to="." method="_on_player_player_started_game"]
 [connection signal="button_down" from="UI/TutorialScreen/VBoxContainer/MarginContainer/TutorialButton" to="." method="_on_tutorial_button_button_down"]
 [connection signal="visibility_changed" from="UI/PauseScreen" to="UI/PauseScreen" method="_on_visibility_changed"]
 [connection signal="pressed" from="UI/PauseScreen/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/PauseScreen/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="timeout" from="Timers/Level1" to="." method="_on_level_1_timeout"]
 [connection signal="timeout" from="Timers/Level2" to="." method="_on_level_2_timeout"]
+[connection signal="timeout" from="Timers/Level3" to="." method="_on_level_3_timeout"]
+[connection signal="timeout" from="Timers/Level4" to="." method="_on_level_4_timeout"]
+[connection signal="timeout" from="Timers/Level5" to="." method="_on_level_5_timeout"]
+[connection signal="timeout" from="Timers/Level6" to="." method="_on_level_6_timeout"]
 [connection signal="timeout" from="Timers/RampSpawner" to="." method="_on_ramp_spawner_timeout"]
+[connection signal="timeout" from="DependentTimers/StoneSpawner" to="." method="_on_stone_spawner_timeout"]
