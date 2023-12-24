@@ -2,6 +2,7 @@ extends Node2D
 
 const PersonScene = preload("res://src/spawnables/person.tscn")
 const TreeScene = preload("res://src/spawnables/tree.tscn")
+const RaceEndScene = preload("res://src/scene/race_end_sprites.tscn")
 
 var max_trees_per_row = 2
 var object_spawn_x_variation = 0
@@ -64,3 +65,10 @@ func spawn_objects(nb_of_objects, object_type, min_row):
 		for column_idx in trees_columns:
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
 			_spawn_object_at(tree_position, object_type)
+
+func spawn_race_end():
+	var race_end = RaceEndScene.instantiate()
+	add_child(race_end)
+	
+	var pos_y = Constants.max_rows_per_screen * GameState.y_shift
+	race_end.global_position = Vector2(0, pos_y)

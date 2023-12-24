@@ -1,0 +1,320 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3bfrms5x3pwe"]
+
+[ext_resource type="Script" path="res://src/scene/race_end_sprites.gd" id="1_u7c5g"]
+[ext_resource type="PackedScene" uid="uid://c28ymciy6hmiu" path="res://src/spawnables/person.tscn" id="2_m3m72"]
+[ext_resource type="Texture2D" uid="uid://c758bk07wo607" path="res://assets/sprites/tilemap_snug_bonus.png" id="3_wx6g4"]
+[ext_resource type="Texture2D" uid="uid://bsr0gme8yjqq" path="res://assets/sprites/sponsors/heits-digital.png" id="4_ap60m"]
+[ext_resource type="Texture2D" uid="uid://de562p6s86tj" path="res://assets/sprites/sponsors/buscat.png" id="5_rypwg"]
+[ext_resource type="Texture2D" uid="uid://blvuooiysd2m0" path="res://assets/sprites/sponsors/outdoor-pro.jpeg" id="6_5q5pr"]
+[ext_resource type="Texture2D" uid="uid://bj0k3s4lo2mdt" path="res://assets/sprites/sponsors/vitamin-aqua.png" id="7_lq772"]
+[ext_resource type="Texture2D" uid="uid://ba4vc5vxqv2v0" path="res://assets/sprites/sponsors/apex.png" id="8_ck7lf"]
+[ext_resource type="Texture2D" uid="uid://bxcb5hbkbp8wv" path="res://assets/sprites/sponsors/aass.png" id="9_4b6jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfo10"]
+size = Vector2(176, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlmj"]
+size = Vector2(42.6667, 13.3333)
+
+[node name="RaceStartSprites" type="Node2D"]
+script = ExtResource("1_u7c5g")
+
+[node name="Start" type="Sprite2D" parent="."]
+position = Vector2(576, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(32, 16, 80, 48)
+
+[node name="Area2D" type="Area2D" parent="Start"]
+position = Vector2(0, 18.6667)
+scale = Vector2(0.333333, 0.333333)
+collision_layer = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Area2D"]
+shape = SubResource("RectangleShape2D_tfo10")
+
+[node name="Sponsor1" type="Sprite2D" parent="."]
+position = Vector2(384, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="HEITS" type="Sprite2D" parent="Sponsor1"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("4_ap60m")
+
+[node name="Area2D" type="Area2D" parent="Sponsor1"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor1/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor2" type="Sprite2D" parent="."]
+position = Vector2(232, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="Buscat" type="Sprite2D" parent="Sponsor2"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("5_rypwg")
+
+[node name="Area2D" type="Area2D" parent="Sponsor2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor2/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor3" type="Sprite2D" parent="."]
+position = Vector2(921, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="OutdoorPro" type="Sprite2D" parent="Sponsor3"]
+position = Vector2(0, -0.666748)
+scale = Vector2(0.0390413, 0.0390413)
+texture = ExtResource("6_5q5pr")
+
+[node name="Area2D" type="Area2D" parent="Sponsor3"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor3/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor4" type="Sprite2D" parent="."]
+position = Vector2(768, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="VitaminAqua" type="Sprite2D" parent="Sponsor4"]
+position = Vector2(0, -0.333496)
+scale = Vector2(0.00860029, 0.00860029)
+texture = ExtResource("7_lq772")
+
+[node name="Area2D" type="Area2D" parent="Sponsor4"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor4/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor5" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="ApexAcademy" type="Sprite2D" parent="Sponsor5"]
+position = Vector2(0, -0.333252)
+scale = Vector2(0.0130215, 0.0130215)
+texture = ExtResource("8_ck7lf")
+
+[node name="Area2D" type="Area2D" parent="Sponsor5"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor5/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor8" type="Sprite2D" parent="."]
+position = Vector2(1528, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="HEITS" type="Sprite2D" parent="Sponsor8"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("4_ap60m")
+
+[node name="Area2D" type="Area2D" parent="Sponsor8"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor8/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor11" type="Sprite2D" parent="."]
+position = Vector2(1376, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="Buscat" type="Sprite2D" parent="Sponsor11"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("5_rypwg")
+
+[node name="Area2D" type="Area2D" parent="Sponsor11"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor11/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor12" type="Sprite2D" parent="."]
+position = Vector2(1224, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="ApexAcademy" type="Sprite2D" parent="Sponsor12"]
+position = Vector2(0, -0.333252)
+scale = Vector2(0.0130215, 0.0130215)
+texture = ExtResource("8_ck7lf")
+
+[node name="Area2D" type="Area2D" parent="Sponsor12"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor12/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor6" type="Sprite2D" parent="."]
+position = Vector2(1072, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="AAS" type="Sprite2D" parent="Sponsor6"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.0298994, 0.0298994)
+texture = ExtResource("9_4b6jx")
+
+[node name="Area2D" type="Area2D" parent="Sponsor6"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor6/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor7" type="Sprite2D" parent="."]
+position = Vector2(-223, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="OutdoorPro" type="Sprite2D" parent="Sponsor7"]
+position = Vector2(0, -0.666748)
+scale = Vector2(0.0390413, 0.0390413)
+texture = ExtResource("6_5q5pr")
+
+[node name="Area2D" type="Area2D" parent="Sponsor7"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor7/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor9" type="Sprite2D" parent="."]
+position = Vector2(-376, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="VitaminAqua" type="Sprite2D" parent="Sponsor9"]
+position = Vector2(0, -0.333496)
+scale = Vector2(0.00860029, 0.00860029)
+texture = ExtResource("7_lq772")
+
+[node name="Area2D" type="Area2D" parent="Sponsor9"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor9/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Sponsor10" type="Sprite2D" parent="."]
+position = Vector2(-72, 80)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wx6g4")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="AAS" type="Sprite2D" parent="Sponsor10"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.0298994, 0.0298994)
+texture = ExtResource("9_4b6jx")
+
+[node name="Area2D" type="Area2D" parent="Sponsor10"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sponsor10/Area2D"]
+position = Vector2(0, -1.33333)
+shape = SubResource("RectangleShape2D_gdlmj")
+
+[node name="Person5" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(344, 176)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person6" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(216, 128)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person7" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(128, 176)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person10" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(920, 160)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person12" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(744, 128)
+has_bonus_speed = false
+is_spectator = true
+
+[node name="Person13" parent="." instance=ExtResource("2_m3m72")]
+position = Vector2(792, 208)
+has_bonus_speed = false
+is_spectator = true
+
+[connection signal="area_entered" from="Start/Area2D" to="." method="_on_area_2d_area_entered"]

@@ -5,6 +5,7 @@ extends Node2D
 @onready var end_screen = %EndScreen
 
 @onready var main_theme = $MainTheme
+@onready var celebration = $Celebration
 @onready var spawner = $Spawner
 
 var distance = 0
@@ -12,7 +13,8 @@ var max_player_speed = 0
 var accelerate_player = false
 
 var main_theme_time = 3
-var main_theme_total_time = 2 * 60 + 40
+var main_theme_total_time = 2 * 60 + 32
+var spawned_end_screen = false
 
 func _ready():
 	progress_bar.max_value = main_theme_total_time
@@ -38,8 +40,12 @@ func _process(_delta):
 	main_theme_time = main_theme.get_playback_position()
 	progress_bar.value = main_theme_time
 	
-	# TODO: add celebration for 100% complete
-	if main_theme_time == main_theme_total_time:
+	if main_theme_time >= main_theme_total_time - 2 and not spawned_end_screen:
+		spawner.spawn_race_end()
+		spawned_end_screen = true
+	
+	if main_theme_time >= main_theme_total_time:
+		celebration.play(1)
 		_on_player_player_hit_obstacle()
 	
 	if accelerate_player and int(GameState.total_time * 10) % 10 == 0:
