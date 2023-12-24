@@ -7,6 +7,7 @@ var strife_perc = 0.5
 
 var seen_tutorial = false
 var highscore = 0
+var attempts = 1
 
 var acceleartion = 5
 var deceleration = 10
@@ -31,6 +32,7 @@ var bonus_points = 0
 @onready var player_y = (Constants.max_rows_per_screen - 1) * y_shift / 3 
 
 func _on_reset_button_pressed():
+	attempts += 1
 	reset_state()
 	get_tree().reload_current_scene()
 

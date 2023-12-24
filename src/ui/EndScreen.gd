@@ -19,8 +19,8 @@ func _on_game_over():
 	%ScoreLabel.text = str(score)
 	
 	%DistanceLabel.text = "%0.2f"%GameState.total_distance
-	%TotalTimeLabel.text = "%0.2f"%GameState.total_time
 	%MaxSpeedLabel.text = "%0.2f"%GameState.max_player_speed
+	%AttemptsLabel.text = "%s"%GameState.attempts
 
 func _on_button_button_down():
 	GameState._on_reset_button_pressed()
