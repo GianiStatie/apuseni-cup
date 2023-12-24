@@ -89,11 +89,7 @@ func _on_area_entered(area):
 		player_hit_obstacle.emit()
 
 func _on_hit_ramp():
-	GameState.bonus_points += 200
-	
-	var random_x = Utils.random_sample_from_range(global_position.x + 16, global_position.x + 32, 1)[0]
-	var random_y = Utils.random_sample_from_range(global_position.y -32, global_position.y, 1)[0]
-	Utils.instance_scene_on_main(BonusPointsScene, Vector2(random_x, random_y))
+	$CoinEffect.play(0.3)
 	jump()
 
 func _on_finished_jumping():

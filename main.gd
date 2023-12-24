@@ -74,6 +74,9 @@ func _on_player_player_hit_obstacle():
 	end_screen._on_game_over()
 
 func _on_player_player_started_game():
+	for timer in $Timers.get_children():
+		timer.start()
+	
 	main_theme.play(main_theme_time)
 	GameState.game_started = true
 
@@ -98,16 +101,16 @@ func _on_level_1_timeout():
 	if GameState.game_over:
 		return
 	accelerate_player = true
-	show_warning("⚠ the slope steepens ⚠")
+	show_warning("The Slope Steepens")
 
 func _on_level_2_timeout():
 	if GameState.game_over:
 		return
 	GameState.acceleartion += 5
-	show_warning("⚠ the slope steepens ⚠")
+	show_warning("The Slope Steepens")
 
 func _on_ramp_spawner_timeout():
 	if GameState.game_over:
 		return
 	spawner.spawn_object_at_end("Ramp", true)
-	$RampSpawner.start()
+	$Timers/RampSpawner.start()

@@ -68,7 +68,6 @@ func spawn_objects(nb_of_objects, object_type, min_row):
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
 			_spawn_object_at(tree_position, object_type)
 
-
 func spawn_object_at_end(object_type, random_positions=false):
 	var object = null
 	if object_type == "RaceEnd":
