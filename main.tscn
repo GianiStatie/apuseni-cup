@@ -286,6 +286,10 @@ one_shot = true
 wait_time = 111.0
 one_shot = true
 
+[node name="Level7" type="Timer" parent="Timers"]
+wait_time = 122.0
+one_shot = true
+
 [node name="RampSpawner" type="Timer" parent="Timers"]
 wait_time = 8.5
 one_shot = true
@@ -307,5 +311,6 @@ one_shot = true
 [connection signal="timeout" from="Timers/Level4" to="." method="_on_level_4_timeout"]
 [connection signal="timeout" from="Timers/Level5" to="." method="_on_level_5_timeout"]
 [connection signal="timeout" from="Timers/Level6" to="." method="_on_level_6_timeout"]
+[connection signal="timeout" from="Timers/Level7" to="." method="_on_level_7_timeout"]
 [connection signal="timeout" from="Timers/RampSpawner" to="." method="_on_ramp_spawner_timeout"]
 [connection signal="timeout" from="DependentTimers/StoneSpawner" to="." method="_on_stone_spawner_timeout"]

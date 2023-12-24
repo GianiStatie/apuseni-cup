@@ -6,6 +6,7 @@ const RampScene = preload("res://src/spawnables/ramp.tscn")
 const StoneScene = preload("res://src/spawnables/stone.tscn")
 const BiggerStoneScene = preload("res://src/spawnables/bigger_stone.tscn")
 const YetiScene = preload("res://src/spawnables/yeti.tscn")
+const AvalancheScene = preload("res://src/spawnables/avalanche.tscn")
 
 const RaceEndScene = preload("res://src/scene/race_end_sprites.tscn")
 
@@ -101,6 +102,8 @@ func spawn_object_at_beggining(object_type, random_positions=false):
 	var object = null
 	if object_type == "Yeti":
 		object = YetiScene.instantiate()
+	elif object_type == "Avalanche":
+		object = AvalancheScene.instantiate()
 	
 	add_child(object)
 	
@@ -112,5 +115,5 @@ func spawn_object_at_beggining(object_type, random_positions=false):
 		col_idx = Utils.random_sample_from_range(col_idx - 1, col_idx + 1, 1)[0]
 		pos_x = col_idx * GameState.x_shift + x_variation_amount
 	
-	var pos_y = -1 * GameState.y_shift
+	var pos_y = -1 * GameState.y_shift * (object.scale.y / 2)
 	object.global_position = Vector2(pos_x, pos_y)

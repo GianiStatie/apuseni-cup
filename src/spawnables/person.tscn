@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyrkrgkdguess" path="res://src/effects/trail.tscn" id="4_blulh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
-size = Vector2(17, 16)
+size = Vector2(32, 32)
 
 [sub_resource type="Animation" id="Animation_rp3hk"]
 resource_name = "Cheer"
@@ -46,7 +46,7 @@ _data = {
 "RESET": SubResource("Animation_kl0md")
 }
 
-[node name="Person" type="Area2D" groups=["Obstacle", "Person"]]
+[node name="Person" type="Area2D" groups=["Jumpable", "Obstacle", "Person"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_qwcy8")
@@ -76,7 +76,6 @@ region_enabled = true
 region_rect = Rect2(0, 16, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_rf8ue")
 
 [node name="TrailEffect" parent="." instance=ExtResource("4_blulh")]

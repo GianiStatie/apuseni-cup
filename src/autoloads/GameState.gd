@@ -1,14 +1,15 @@
 extends Node
 
 var min_speed_y = 10
-var max_speed_y = 1500
+var max_speed_y = 1000
 
-var acceleartion = 5
-var deceleration = 10
 var strife_perc = 0.5
 
 var seen_tutorial = false
 var highscore = 0
+
+var acceleartion = 5
+var deceleration = 10
 
 var move_speed_x = 0
 var move_speed_y = 20
@@ -34,6 +35,9 @@ func _on_reset_button_pressed():
 	get_tree().reload_current_scene()
 
 func reset_state():
+	acceleartion = 5
+	deceleration = 10
+	
 	total_distance = 0
 	total_time = 0
 	completion = 0

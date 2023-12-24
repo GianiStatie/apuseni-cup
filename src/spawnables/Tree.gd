@@ -10,6 +10,8 @@ var bonus_speed_min = 50
 var bonus_speed_max = 120
 var bonus_speed = 0
 
+var points = 100
+
 signal exited_screen_on_up(main_group)
 signal exited_screen_on_left(main_group)
 signal exited_screen_on_right(main_group)

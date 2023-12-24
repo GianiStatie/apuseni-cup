@@ -1,8 +1,7 @@
 extends Area2D
 
-var margin_px = 25
-var initial_speed = 400
-var max_speed = 700
+var initial_speed = 200
+var max_speed = 650
 
 func _process(delta):
 	if GameState.game_paused:
@@ -17,6 +16,8 @@ func _process(delta):
 	var yeti_speed = max(GameState.move_speed_y * 0.95, initial_speed)
 	position = position.move_toward(player_position, delta * yeti_speed)
 
+
 func _on_area_entered(area):
 	$Sprite2D.visible = false
 	$Sprite2D2.visible = true
+ 

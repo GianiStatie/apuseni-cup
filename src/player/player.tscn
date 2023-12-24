@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://qqmqbdmyii7u" path="res://assets/sounds/Retro Game Coin Sound Effect.mp3" id="4_s7ewb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6np"]
-size = Vector2(12, 12)
+size = Vector2(20, 20.5)
 
 [sub_resource type="Animation" id="Animation_qhfvq"]
 resource_name = "Jumping"
@@ -78,7 +78,7 @@ region_enabled = true
 region_rect = Rect2(176, 80, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 5.25)
 shape = SubResource("RectangleShape2D_cu6np")
 
 [node name="OofSoundEffect" type="AudioStreamPlayer2D" parent="."]

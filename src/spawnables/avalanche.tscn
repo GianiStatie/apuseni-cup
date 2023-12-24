@@ -1,0 +1,143 @@
+[gd_scene load_steps=9 format=3 uid="uid://kad1xu2lnq8s"]
+
+[ext_resource type="Script" path="res://src/spawnables/avalanche.gd" id="1_cn572"]
+[ext_resource type="Texture2D" uid="uid://cdfy60780hxn" path="res://assets/sprites/Clouds V2.png" id="1_lrous"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hob0p"]
+atlas = ExtResource("1_lrous")
+region = Rect2(0, 0, 60, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7n3lv"]
+atlas = ExtResource("1_lrous")
+region = Rect2(60, 0, 60, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3km4g"]
+atlas = ExtResource("1_lrous")
+region = Rect2(120, 0, 60, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iftyt"]
+atlas = ExtResource("1_lrous")
+region = Rect2(180, 0, 60, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfj8x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hob0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7n3lv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3km4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iftyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e65d"]
+size = Vector2(256, 20)
+
+[node name="Avalanche" type="Area2D" groups=["Obstacle"]]
+position = Vector2(-40, -912)
+scale = Vector2(10, 10)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_cn572")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.81486
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(-24, 11)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, 12)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-46, 22)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 23)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(44, 23)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+position = Vector2(-69, 33)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 37)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+position = Vector2(30, 40)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="."]
+position = Vector2(74, 40)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="."]
+position = Vector2(-92, 46)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="."]
+position = Vector2(-39, 51)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 51)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="."]
+position = Vector2(60, 55)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="."]
+position = Vector2(104, 55)
+sprite_frames = SubResource("SpriteFrames_pfj8x")
+autoplay = "default"
+frame_progress = 0.370024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5.33334, 50.6667)
+shape = SubResource("RectangleShape2D_5e65d")

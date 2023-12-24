@@ -85,18 +85,18 @@ func jump():
 
 func _on_area_entered(area):
 	if "Ramp" in area.get_groups():
-		_on_hit_ramp()
+		_on_hit_ramp(200)
 	elif "Obstacle" in area.get_groups():
 		if "Jumpable" in area.get_groups() and is_jumping:
-			get_points()
+			get_points(area.points)
 			return
 		if not GameState.game_over:
 			GameState.move_speed_x = 0
 			oof_sound.play(0.2)
 			player_hit_obstacle.emit()
 
-func _on_hit_ramp():
-	get_points()
+func _on_hit_ramp(points):
+	get_points(points)
 	jump()
 
 func _on_finished_jumping():
@@ -116,6 +116,9 @@ func stop_trail():
 	prev_trail.stop()
 	prev_trail = null
 
-func get_points():
-	GameState.bonus_points += 200
+func get_points(points):
+	GameState.bonus_points += points
+	var pos_x = Utils.random_sample_from_range(global_position.x + 16, global_position.x + 32, 1)[0]
+	var pos_y = Utils.random_sample_from_range(global_position.y - 32, global_position.y, 1)[0]
+	Utils.instance_scene_on_main(BonusPointsScene, Vector2(pos_x, pos_y), {"points": points})
 	$CoinEffect.play(0.3)

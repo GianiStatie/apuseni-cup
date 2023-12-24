@@ -2,6 +2,8 @@ extends Area2D
 
 var margin_px = 25
 
+var points = 100
+
 func _process(delta):
 	if GameState.game_paused:
 		return

@@ -60,6 +60,8 @@ func _on_pause_button_pressed():
 		main_theme.stop()
 		GameState.game_paused = true
 		%PauseScreen.visible = true
+		for timer in $Timers.get_children():
+			timer.paused = true
 	else:
 		_on_resume_pressed()
 
@@ -90,6 +92,8 @@ func _on_resume_pressed():
 	main_theme.play(main_theme_time)
 	GameState.game_paused = false
 	%PauseScreen.visible = false
+	for timer in $Timers.get_children():
+		timer.paused = false
 
 func _on_restart_pressed():
 	GameState._on_reset_button_pressed()
@@ -130,6 +134,12 @@ func _on_level_5_timeout():
 	show_warning("Yeti")
 
 func _on_level_6_timeout():
+	if GameState.game_over:
+		return
+	spawner.spawn_object_at_beggining("Avalanche", true)
+	show_warning("Avalanche")
+
+func _on_level_7_timeout():
 	if GameState.game_over:
 		return
 	GameState.acceleartion += 5
