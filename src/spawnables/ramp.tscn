@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5ajpojxvxnfn"]
+
+[ext_resource type="Script" path="res://src/spawnables/Ramp.gd" id="1_073fa"]
+[ext_resource type="Texture2D" uid="uid://bmiq2u7vi3881" path="res://assets/sprites/tilemap_snug.png" id="1_dr2t0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjouc"]
+size = Vector2(32, 10)
+
+[node name="Area2D" type="Area2D" groups=["Ramp"]]
+show_behind_parent = true
+z_index = -1
+scale = Vector2(3, 2)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_073fa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(1, 1.25)
+texture = ExtResource("1_dr2t0")
+region_enabled = true
+region_rect = Rect2(32, 80, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_qjouc")

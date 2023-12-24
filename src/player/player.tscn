@@ -60,7 +60,7 @@ _data = {
 }
 
 [node name="Player" type="Area2D"]
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("2_k5ly4")
 
 [node name="SpriteStop" type="Sprite2D" parent="."]

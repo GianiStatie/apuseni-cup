@@ -130,6 +130,45 @@ position = Vector2(0, -0.333252)
 scale = Vector2(0.0130215, 0.0130215)
 texture = ExtResource("6_wb2tl")
 
+[node name="Sponsor10" type="Sprite2D" parent="."]
+position = Vector2(1528, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="HEITS" type="Sprite2D" parent="Sponsor10"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("2_eg8jb")
+
+[node name="Sponsor11" type="Sprite2D" parent="."]
+position = Vector2(1376, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="Buscat" type="Sprite2D" parent="Sponsor11"]
+position = Vector2(0, -0.333333)
+scale = Vector2(0.069697, 0.069697)
+texture = ExtResource("3_f5fdc")
+
+[node name="Sponsor12" type="Sprite2D" parent="."]
+position = Vector2(1224, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="ApexAcademy" type="Sprite2D" parent="Sponsor12"]
+position = Vector2(0, -0.333252)
+scale = Vector2(0.0130215, 0.0130215)
+texture = ExtResource("6_wb2tl")
+
 [node name="Sponsor6" type="Sprite2D" parent="."]
 position = Vector2(1072, 104)
 scale = Vector2(3, 3)
@@ -139,6 +178,45 @@ region_rect = Rect2(80, 0, 48, 16)
 metadata/_edit_group_ = true
 
 [node name="AAS" type="Sprite2D" parent="Sponsor6"]
+position = Vector2(0, -0.5)
+scale = Vector2(0.0298994, 0.0298994)
+texture = ExtResource("7_754p6")
+
+[node name="Sponsor7" type="Sprite2D" parent="."]
+position = Vector2(-223, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="OutdoorPro" type="Sprite2D" parent="Sponsor7"]
+position = Vector2(0, -0.666748)
+scale = Vector2(0.0390413, 0.0390413)
+texture = ExtResource("4_cud3f")
+
+[node name="Sponsor8" type="Sprite2D" parent="."]
+position = Vector2(-376, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="VitaminAqua" type="Sprite2D" parent="Sponsor8"]
+position = Vector2(0, -0.333496)
+scale = Vector2(0.00860029, 0.00860029)
+texture = ExtResource("5_e23q8")
+
+[node name="Sponsor9" type="Sprite2D" parent="."]
+position = Vector2(-72, 104)
+scale = Vector2(3, 3)
+texture = ExtResource("1_vlsji")
+region_enabled = true
+region_rect = Rect2(80, 0, 48, 16)
+metadata/_edit_group_ = true
+
+[node name="AAS" type="Sprite2D" parent="Sponsor9"]
 position = Vector2(0, -0.5)
 scale = Vector2(0.0298994, 0.0298994)
 texture = ExtResource("7_754p6")

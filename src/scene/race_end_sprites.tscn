@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c3bfrms5x3pwe"]
 
-[ext_resource type="Script" path="res://src/scene/race_end_sprites.gd" id="1_u7c5g"]
+[ext_resource type="Script" path="res://src/scene/RaceEndSprites.gd" id="1_c7wnl"]
 [ext_resource type="PackedScene" uid="uid://c28ymciy6hmiu" path="res://src/spawnables/person.tscn" id="2_m3m72"]
 [ext_resource type="Texture2D" uid="uid://c758bk07wo607" path="res://assets/sprites/tilemap_snug_bonus.png" id="3_wx6g4"]
 [ext_resource type="Texture2D" uid="uid://bsr0gme8yjqq" path="res://assets/sprites/sponsors/heits-digital.png" id="4_ap60m"]
@@ -17,10 +17,10 @@ size = Vector2(176, 26)
 size = Vector2(42.6667, 13.3333)
 
 [node name="RaceStartSprites" type="Node2D"]
-script = ExtResource("1_u7c5g")
+script = ExtResource("1_c7wnl")
 
 [node name="Start" type="Sprite2D" parent="."]
-position = Vector2(576, 96)
+position = Vector2(0, -56)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -36,7 +36,7 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_tfo10")
 
 [node name="Sponsor1" type="Sprite2D" parent="."]
-position = Vector2(384, 80)
+position = Vector2(-192, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -57,7 +57,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor2" type="Sprite2D" parent="."]
-position = Vector2(232, 80)
+position = Vector2(-344, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -78,7 +78,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor3" type="Sprite2D" parent="."]
-position = Vector2(921, 80)
+position = Vector2(345, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -99,7 +99,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor4" type="Sprite2D" parent="."]
-position = Vector2(768, 80)
+position = Vector2(192, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -120,7 +120,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor5" type="Sprite2D" parent="."]
-position = Vector2(80, 80)
+position = Vector2(-496, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -141,7 +141,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor8" type="Sprite2D" parent="."]
-position = Vector2(1528, 80)
+position = Vector2(952, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -162,7 +162,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor11" type="Sprite2D" parent="."]
-position = Vector2(1376, 80)
+position = Vector2(800, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -183,7 +183,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor12" type="Sprite2D" parent="."]
-position = Vector2(1224, 80)
+position = Vector2(648, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -204,7 +204,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor6" type="Sprite2D" parent="."]
-position = Vector2(1072, 80)
+position = Vector2(496, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -225,7 +225,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor7" type="Sprite2D" parent="."]
-position = Vector2(-223, 80)
+position = Vector2(-799, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -246,7 +246,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor9" type="Sprite2D" parent="."]
-position = Vector2(-376, 80)
+position = Vector2(-952, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -267,7 +267,7 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Sponsor10" type="Sprite2D" parent="."]
-position = Vector2(-72, 80)
+position = Vector2(-648, -72)
 scale = Vector2(3, 3)
 texture = ExtResource("3_wx6g4")
 region_enabled = true
@@ -288,32 +288,32 @@ position = Vector2(0, -1.33333)
 shape = SubResource("RectangleShape2D_gdlmj")
 
 [node name="Person5" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(344, 176)
+position = Vector2(-232, 24)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person6" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(216, 128)
+position = Vector2(-360, -24)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person7" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(128, 176)
+position = Vector2(-448, 24)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person10" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(920, 160)
+position = Vector2(344, 8)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person12" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(744, 128)
+position = Vector2(168, -24)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person13" parent="." instance=ExtResource("2_m3m72")]
-position = Vector2(792, 208)
+position = Vector2(216, 56)
 has_bonus_speed = false
 is_spectator = true
 

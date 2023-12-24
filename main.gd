@@ -41,7 +41,7 @@ func _process(_delta):
 	progress_bar.value = main_theme_time
 	
 	if main_theme_time >= main_theme_total_time - 2 and not spawned_end_screen:
-		spawner.spawn_race_end()
+		spawner.spawn_object_at_end("RaceEnd")
 		spawned_end_screen = true
 	
 	if main_theme_time >= main_theme_total_time:
@@ -103,5 +103,11 @@ func _on_level_1_timeout():
 func _on_level_2_timeout():
 	if GameState.game_over:
 		return
-	GameState.acceleartion += 15
+	GameState.acceleartion += 5
 	show_warning("⚠ the slope steepens ⚠")
+
+func _on_ramp_spawner_timeout():
+	if GameState.game_over:
+		return
+	spawner.spawn_object_at_end("Ramp", true)
+	$RampSpawner.start()

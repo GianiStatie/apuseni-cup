@@ -6,8 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8ue"]
 size = Vector2(32, 32)
 
-[node name="Tree" type="Area2D" groups=["Tree"]]
-z_index = 1
+[node name="Tree" type="Area2D" groups=["Obstacle", "Tree"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_8q0i7")

@@ -20,6 +20,7 @@ var total_distance = 0
 var total_time = 0
 var completion = 0
 var max_player_speed = 0
+var bonus_points = 0
 
 @onready var viewport_size = get_viewport().size
 @onready var x_shift = viewport_size.x / (Constants.max_cols_per_screen - 1)
@@ -34,6 +35,7 @@ func reset_state():
 	total_time = 0
 	completion = 0
 	max_player_speed = 0
+	bonus_points = 0
 	
 	game_started = false
 	game_paused = true

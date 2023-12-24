@@ -2,6 +2,8 @@ extends Node2D
 
 const PersonScene = preload("res://src/spawnables/person.tscn")
 const TreeScene = preload("res://src/spawnables/tree.tscn")
+const RampScene = preload("res://src/spawnables/ramp.tscn")
+
 const RaceEndScene = preload("res://src/scene/race_end_sprites.tscn")
 
 var max_trees_per_row = 2
@@ -37,9 +39,9 @@ func _on_object_exited_screen_on_sides(object_type, direction):
 
 func _spawn_object_at(tree_position, object_type):
 	var object = null
-	if object_type == "Tree":
+	if "Tree" in object_type:
 		object = TreeScene.instantiate()
-	elif object_type == "Person":
+	elif "Person" in object_type:
 		object = PersonScene.instantiate()
 	
 	object.connect("exited_screen_on_up", _on_object_exited_screen_on_up)
@@ -66,9 +68,19 @@ func spawn_objects(nb_of_objects, object_type, min_row):
 			var tree_position = Vector2(column_idx * GameState.x_shift, row_idx * GameState.y_shift)
 			_spawn_object_at(tree_position, object_type)
 
-func spawn_race_end():
-	var race_end = RaceEndScene.instantiate()
-	add_child(race_end)
+
+func spawn_object_at_end(object_type, random_positions=false):
+	var object = null
+	if object_type == "RaceEnd":
+		object = RaceEndScene.instantiate()
+	elif object_type == "Ramp":
+		object = RampScene.instantiate()
 	
+	add_child(object)
+	
+	var col_idx = int(Constants.max_cols_per_screen / 2)
+	if random_positions:
+		col_idx = Utils.random_sample_from_range(col_idx - 1, col_idx + 1, 1)[0]
+	var pos_x = col_idx  * GameState.x_shift
 	var pos_y = Constants.max_rows_per_screen * GameState.y_shift
-	race_end.global_position = Vector2(0, pos_y)
+	object.global_position = Vector2(pos_x, pos_y)

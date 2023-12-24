@@ -1,6 +1,7 @@
 extends Area2D
 
 const SnowTrailScene = preload("res://src/effects/trail.tscn")
+const BonusPointsScene = preload("res://src/effects/bonus_points.tscn")
 
 var should_accelearte = false
 var should_decelerate = false
@@ -44,8 +45,7 @@ func _input(event):
 	
 	if event.is_action_pressed("ui_accept"):
 		if not is_jumping and GameState.move_speed_y > 100:
-			is_jumping = true
-			animation_player.play("Jumping")
+			jump()
 	
 	if GameState.game_paused and should_accelearte:
 		player_started_game.emit()
@@ -76,11 +76,25 @@ func _process(_delta):
 	if should_decelerate and GameState.move_speed_y > GameState.min_speed_y:
 		GameState.move_speed_y -= GameState.deceleration
 
-func _on_area_entered(_area):
-	if not GameState.game_over:
+func jump():
+	is_jumping = true
+	animation_player.play("Jumping")
+
+func _on_area_entered(area):
+	if "Ramp" in area.get_groups():
+		_on_hit_ramp()
+	elif "Obstacle" in area.get_groups() and not GameState.game_over:
 		GameState.move_speed_x = 0
 		oof_sound.play(0.2)
 		player_hit_obstacle.emit()
+
+func _on_hit_ramp():
+	GameState.bonus_points += 200
+	
+	var random_x = Utils.random_sample_from_range(global_position.x + 16, global_position.x + 32, 1)[0]
+	var random_y = Utils.random_sample_from_range(global_position.y -32, global_position.y, 1)[0]
+	Utils.instance_scene_on_main(BonusPointsScene, Vector2(random_x, random_y))
+	jump()
 
 func _on_finished_jumping():
 	is_jumping = false

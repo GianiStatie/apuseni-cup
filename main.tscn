@@ -66,6 +66,7 @@ y_sort_enabled = true
 script = ExtResource("1_7x8jn")
 
 [node name="RaceStartSprites" parent="." instance=ExtResource("4_0r2i8")]
+y_sort_enabled = true
 position = Vector2(0, 64)
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -263,6 +264,11 @@ wait_time = 34.0
 one_shot = true
 autostart = true
 
+[node name="RampSpawner" type="Timer" parent="."]
+wait_time = 8.5
+one_shot = true
+autostart = true
+
 [connection signal="player_hit_obstacle" from="Player" to="." method="_on_player_player_hit_obstacle"]
 [connection signal="player_started_game" from="Player" to="." method="_on_player_player_started_game"]
 [connection signal="button_down" from="UI/TutorialScreen/VBoxContainer/MarginContainer/TutorialButton" to="." method="_on_tutorial_button_button_down"]
@@ -271,3 +277,4 @@ autostart = true
 [connection signal="pressed" from="UI/PauseScreen/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="timeout" from="Level1" to="." method="_on_level_1_timeout"]
 [connection signal="timeout" from="Level2" to="." method="_on_level_2_timeout"]
+[connection signal="timeout" from="RampSpawner" to="." method="_on_ramp_spawner_timeout"]
