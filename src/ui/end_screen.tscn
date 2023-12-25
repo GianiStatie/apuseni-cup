@@ -120,6 +120,7 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 80
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "I Can Do Better"
 

@@ -7,9 +7,9 @@
 [ext_resource type="Script" path="res://Timer.gd" id="4_cbk4s"]
 [ext_resource type="PackedScene" uid="uid://bkua7eblr7mjy" path="res://src/ui/end_screen.tscn" id="5_e0xiv"]
 [ext_resource type="Texture2D" uid="uid://cbb4a64ni8gv7" path="res://assets/screens/tutorial-export1.png" id="6_11frj"]
-[ext_resource type="AudioStream" uid="uid://cy1cappfgrojd" path="res://assets/sounds/Grieg - In the Hall of the Mountain King.mp3" id="6_hd5dd"]
 [ext_resource type="Texture2D" uid="uid://jn2vbxyhm25c" path="res://assets/screens/tutorial-export2.png" id="7_5gdvd"]
 [ext_resource type="Script" path="res://src/ui/PauseScreen.gd" id="9_qhxdr"]
+[ext_resource type="AudioStream" uid="uid://br7panw7jlkwq" path="res://assets/sounds/Grieg - In the Hall of the Mountain King.wav" id="11_3vnd0"]
 [ext_resource type="AudioStream" uid="uid://c56rmvnb1k6" path="res://assets/sounds/Cheer Sound Effect.mp3" id="11_kl1e3"]
 [ext_resource type="Texture2D" uid="uid://b2oxtqdch5vps" path="res://assets/sprites/tilemap_packed.png" id="12_3fcfo"]
 
@@ -53,8 +53,9 @@ _data = {
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_xhxcp"]
 frames = 2
 frame_0/texture = ExtResource("6_11frj")
+frame_0/duration = 0.5
 frame_1/texture = ExtResource("7_5gdvd")
-frame_1/duration = 1.0
+frame_1/duration = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nu46g"]
 atlas = ExtResource("12_3fcfo")
@@ -316,6 +317,7 @@ texture_normal = SubResource("AtlasTexture_nu46g")
 texture_pressed = SubResource("AtlasTexture_7vyvs")
 passby_press = true
 action = "ui_accept"
+visibility_mode = 1
 
 [node name="MarginContainer4" type="MarginContainer" parent="UI"]
 anchors_preset = 2
@@ -333,6 +335,7 @@ texture_normal = SubResource("AtlasTexture_7uv87")
 texture_pressed = SubResource("AtlasTexture_e1ndv")
 passby_press = true
 action = "ui_left"
+visibility_mode = 1
 
 [node name="TouchButtonDown" type="TouchScreenButton" parent="UI/MarginContainer4"]
 modulate = Color(1, 1, 1, 0.313726)
@@ -342,6 +345,7 @@ texture_normal = SubResource("AtlasTexture_3jyt6")
 texture_pressed = SubResource("AtlasTexture_h2jfn")
 passby_press = true
 action = "ui_down"
+visibility_mode = 1
 
 [node name="TouchButtonRight" type="TouchScreenButton" parent="UI/MarginContainer4"]
 modulate = Color(1, 1, 1, 0.313726)
@@ -351,6 +355,7 @@ texture_normal = SubResource("AtlasTexture_uwkuy")
 texture_pressed = SubResource("AtlasTexture_pc3q7")
 passby_press = true
 action = "ui_right"
+visibility_mode = 1
 
 [node name="TouchButtonUp" type="TouchScreenButton" parent="UI/MarginContainer4"]
 modulate = Color(1, 1, 1, 0.313726)
@@ -360,9 +365,10 @@ texture_normal = SubResource("AtlasTexture_lviqh")
 texture_pressed = SubResource("AtlasTexture_t147r")
 passby_press = true
 action = "ui_up"
+visibility_mode = 1
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_hd5dd")
+stream = ExtResource("11_3vnd0")
 volume_db = 20.0
 
 [node name="Celebration" type="AudioStreamPlayer2D" parent="."]
