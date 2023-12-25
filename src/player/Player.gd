@@ -21,7 +21,7 @@ signal player_hit_obstacle
 
 
 func _ready():
-	position = Vector2(GameState.player_x, GameState.player_y)
+	position = GameState.player_position
 
 func _input(event):
 	if not GameState.seen_tutorial or GameState.game_over:

@@ -16,7 +16,7 @@ size = Vector2(176, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gdlmj"]
 size = Vector2(42.6667, 13.3333)
 
-[node name="RaceStartSprites" type="Node2D"]
+[node name="RaceEndSprites" type="Node2D"]
 script = ExtResource("1_c7wnl")
 
 [node name="Start" type="Sprite2D" parent="."]

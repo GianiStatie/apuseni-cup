@@ -87,7 +87,7 @@ attenuation = 15.0
 
 [node name="CoinEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_s7ewb")
-attenuation = 15.0
+volume_db = -15.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

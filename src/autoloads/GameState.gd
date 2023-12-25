@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 var min_speed_y = 10
 var max_speed_y = 1000
@@ -24,12 +24,11 @@ var completion = 0
 var max_player_speed = 0
 var bonus_points = 0
 
-@onready var viewport_size = get_viewport().size
+@onready var viewport_size = get_viewport_rect().size
 @onready var x_shift = viewport_size.x / (Constants.max_cols_per_screen - 1)
 @onready var y_shift = viewport_size.y / (Constants.max_rows_per_screen - 1)
 
-@onready var player_x = (Constants.max_cols_per_screen - 1) * x_shift / 2
-@onready var player_y = (Constants.max_rows_per_screen - 1) * y_shift / 3 
+@onready var player_position = Vector2(viewport_size.x / 2, viewport_size.y / 3)
 
 func _on_reset_button_pressed():
 	attempts += 1
@@ -37,6 +36,12 @@ func _on_reset_button_pressed():
 	get_tree().reload_current_scene()
 
 func reset_state():
+	viewport_size = get_viewport_rect().size
+	x_shift = viewport_size.x / (Constants.max_cols_per_screen - 1)
+	y_shift = viewport_size.y / (Constants.max_rows_per_screen - 1)
+	
+	player_position = Vector2(viewport_size.x / 2, viewport_size.y / 3)
+	
 	acceleartion = 5
 	deceleration = 10
 	

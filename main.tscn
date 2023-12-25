@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dv2oa7jeduxmj"]
+[gd_scene load_steps=27 format=3 uid="uid://dv2oa7jeduxmj"]
 
 [ext_resource type="Script" path="res://src/Spawner.gd" id="1_7x8jn"]
 [ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://jn2vbxyhm25c" path="res://assets/screens/tutorial-export2.png" id="7_5gdvd"]
 [ext_resource type="Script" path="res://src/ui/PauseScreen.gd" id="9_qhxdr"]
 [ext_resource type="AudioStream" uid="uid://c56rmvnb1k6" path="res://assets/sounds/Cheer Sound Effect.mp3" id="11_kl1e3"]
+[ext_resource type="Texture2D" uid="uid://b2oxtqdch5vps" path="res://assets/sprites/tilemap_packed.png" id="12_3fcfo"]
 
 [sub_resource type="Animation" id="Animation_65kgd"]
 length = 0.001
@@ -55,8 +56,51 @@ frame_0/texture = ExtResource("6_11frj")
 frame_1/texture = ExtResource("7_5gdvd")
 frame_1/duration = 1.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu46g"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(496, 96, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vyvs"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(496, 224, 48, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uv87"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(528, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1ndv"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(528, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jyt6"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(512, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2jfn"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(512, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwkuy"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(496, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc3q7"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(496, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lviqh"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(480, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t147r"]
+atlas = ExtResource("12_3fcfo")
+region = Rect2(480, 192, 16, 16)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_bjy5c")
+
+[node name="RaceStartSprites" parent="." instance=ExtResource("4_0r2i8")]
+position = Vector2(576, 88)
 
 [node name="Spawner" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -64,10 +108,6 @@ script = ExtResource("1_7x8jn")
 
 [node name="Player" parent="Spawner" instance=ExtResource("2_jupeb")]
 position = Vector2(576, 216)
-
-[node name="RaceStartSprites" parent="." instance=ExtResource("4_0r2i8")]
-y_sort_enabled = true
-position = Vector2(0, 64)
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -82,9 +122,13 @@ grow_vertical = 2
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI"]
-offset_left = 423.0
-offset_right = 728.0
-offset_bottom = 54.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.5
+offset_right = 152.5
+offset_bottom = 160.0
+grow_horizontal = 2
 theme_override_constants/margin_top = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer2"]
@@ -172,7 +216,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="UI/TutorialScreen"]
-custom_minimum_size = Vector2(500, 300)
+custom_minimum_size = Vector2(500, 350)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/TutorialScreen"]
@@ -191,6 +235,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 50
 
 [node name="TutorialButton" type="Button" parent="UI/TutorialScreen/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 text = "Let's Do This!"
 
@@ -251,6 +296,70 @@ text = "Resume"
 [node name="Restart" type="Button" parent="UI/PauseScreen/VBoxContainer"]
 layout_mode = 2
 text = "Restart"
+
+[node name="MarginContainer3" type="MarginContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+
+[node name="TouchSelect" type="TouchScreenButton" parent="UI/MarginContainer3"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(-456, -168)
+scale = Vector2(8, 8)
+texture_normal = SubResource("AtlasTexture_nu46g")
+texture_pressed = SubResource("AtlasTexture_7vyvs")
+passby_press = true
+action = "ui_accept"
+
+[node name="MarginContainer4" type="MarginContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+size_flags_horizontal = 10
+size_flags_vertical = 10
+
+[node name="TouchButtonLeft" type="TouchScreenButton" parent="UI/MarginContainer4"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(72, -248)
+scale = Vector2(8, 8)
+texture_normal = SubResource("AtlasTexture_7uv87")
+texture_pressed = SubResource("AtlasTexture_e1ndv")
+passby_press = true
+action = "ui_left"
+
+[node name="TouchButtonDown" type="TouchScreenButton" parent="UI/MarginContainer4"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(184, -160)
+scale = Vector2(8, 8)
+texture_normal = SubResource("AtlasTexture_3jyt6")
+texture_pressed = SubResource("AtlasTexture_h2jfn")
+passby_press = true
+action = "ui_down"
+
+[node name="TouchButtonRight" type="TouchScreenButton" parent="UI/MarginContainer4"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(296, -248)
+scale = Vector2(8, 8)
+texture_normal = SubResource("AtlasTexture_uwkuy")
+texture_pressed = SubResource("AtlasTexture_pc3q7")
+passby_press = true
+action = "ui_right"
+
+[node name="TouchButtonUp" type="TouchScreenButton" parent="UI/MarginContainer4"]
+modulate = Color(1, 1, 1, 0.313726)
+position = Vector2(184, -336)
+scale = Vector2(8, 8)
+texture_normal = SubResource("AtlasTexture_lviqh")
+texture_pressed = SubResource("AtlasTexture_t147r")
+passby_press = true
+action = "ui_up"
 
 [node name="MainTheme" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_hd5dd")

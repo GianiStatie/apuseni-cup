@@ -1,6 +1,9 @@
 extends Node2D
 
 
+func _ready():
+	global_position = GameState.player_position - Vector2(0, 128)
+
 func _process(delta):
 	if GameState.game_paused:
 		return

@@ -14,59 +14,59 @@
 script = ExtResource("1_alow5")
 
 [node name="Person" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(200, 56)
+position = Vector2(-376, 8)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person2" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(245, 73)
+position = Vector2(-331, 25)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person3" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(337, 54)
+position = Vector2(-239, 6)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person4" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(427, 71)
+position = Vector2(-149, 23)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person5" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(112, 56)
+position = Vector2(-464, 8)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person6" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(912, 56)
+position = Vector2(336, 8)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person7" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(800, 72)
+position = Vector2(224, 24)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person8" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(750, 57)
+position = Vector2(174, 9)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Person9" parent="." instance=ExtResource("1_3qhwi")]
-position = Vector2(1016, 78)
+position = Vector2(440, 30)
 has_bonus_speed = false
 is_spectator = true
 
 [node name="Start" type="Sprite2D" parent="."]
-position = Vector2(576, 120)
+position = Vector2(0, 72)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
 region_rect = Rect2(32, 16, 80, 48)
 
 [node name="Sponsor1" type="Sprite2D" parent="."]
-position = Vector2(384, 104)
+position = Vector2(-192, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -79,7 +79,7 @@ scale = Vector2(0.069697, 0.069697)
 texture = ExtResource("2_eg8jb")
 
 [node name="Sponsor2" type="Sprite2D" parent="."]
-position = Vector2(232, 104)
+position = Vector2(-344, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -92,7 +92,7 @@ scale = Vector2(0.069697, 0.069697)
 texture = ExtResource("3_f5fdc")
 
 [node name="Sponsor3" type="Sprite2D" parent="."]
-position = Vector2(921, 104)
+position = Vector2(345, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -105,7 +105,7 @@ scale = Vector2(0.0390413, 0.0390413)
 texture = ExtResource("4_cud3f")
 
 [node name="Sponsor4" type="Sprite2D" parent="."]
-position = Vector2(768, 104)
+position = Vector2(192, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -118,7 +118,7 @@ scale = Vector2(0.00860029, 0.00860029)
 texture = ExtResource("5_e23q8")
 
 [node name="Sponsor5" type="Sprite2D" parent="."]
-position = Vector2(80, 104)
+position = Vector2(-496, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -131,7 +131,7 @@ scale = Vector2(0.0130215, 0.0130215)
 texture = ExtResource("6_wb2tl")
 
 [node name="Sponsor10" type="Sprite2D" parent="."]
-position = Vector2(1528, 104)
+position = Vector2(952, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -144,7 +144,7 @@ scale = Vector2(0.069697, 0.069697)
 texture = ExtResource("2_eg8jb")
 
 [node name="Sponsor11" type="Sprite2D" parent="."]
-position = Vector2(1376, 104)
+position = Vector2(800, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -157,7 +157,7 @@ scale = Vector2(0.069697, 0.069697)
 texture = ExtResource("3_f5fdc")
 
 [node name="Sponsor12" type="Sprite2D" parent="."]
-position = Vector2(1224, 104)
+position = Vector2(648, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -170,7 +170,7 @@ scale = Vector2(0.0130215, 0.0130215)
 texture = ExtResource("6_wb2tl")
 
 [node name="Sponsor6" type="Sprite2D" parent="."]
-position = Vector2(1072, 104)
+position = Vector2(496, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -183,7 +183,7 @@ scale = Vector2(0.0298994, 0.0298994)
 texture = ExtResource("7_754p6")
 
 [node name="Sponsor7" type="Sprite2D" parent="."]
-position = Vector2(-223, 104)
+position = Vector2(-799, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -196,7 +196,7 @@ scale = Vector2(0.0390413, 0.0390413)
 texture = ExtResource("4_cud3f")
 
 [node name="Sponsor8" type="Sprite2D" parent="."]
-position = Vector2(-376, 104)
+position = Vector2(-952, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true
@@ -209,7 +209,7 @@ scale = Vector2(0.00860029, 0.00860029)
 texture = ExtResource("5_e23q8")
 
 [node name="Sponsor9" type="Sprite2D" parent="."]
-position = Vector2(-72, 104)
+position = Vector2(-648, 56)
 scale = Vector2(3, 3)
 texture = ExtResource("1_vlsji")
 region_enabled = true

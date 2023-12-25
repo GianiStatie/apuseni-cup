@@ -2,6 +2,9 @@ extends Node2D
 
 var decelerate = false
 
+func _ready():
+	global_position = GameState.player_position
+
 func _process(delta):
 	if GameState.game_paused:
 		return

@@ -21,6 +21,11 @@ GameState="*res://src/autoloads/GameState.gd"
 Constants="*res://src/autoloads/Constants.gd"
 Utils="*res://src/autoloads/Utils.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [layer_names]
 
 2d_physics/layer_1="Player"
@@ -30,3 +35,4 @@ Utils="*res://src/autoloads/Utils.gd"
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

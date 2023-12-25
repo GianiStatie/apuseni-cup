@@ -29,3 +29,7 @@ func random_sample_from_range(from, to, ammount):
 			if value != null:
 				samples.append(value)
 	return samples
+
+func get_viewport_center() -> Vector2:
+	print(get_viewport().canvas_transform)
+	return get_viewport().size / 2
