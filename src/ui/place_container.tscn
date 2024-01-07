@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba21hnm4607mp"]
+
+[ext_resource type="Script" path="res://src/ui/PlaceContainer.gd" id="1_uisw2"]
+
+[node name="PlaceContainer" type="HBoxContainer"]
+script = ExtResource("1_uisw2")
+
+[node name="PlaceLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1. Lorem Ipsum
+"
+vertical_alignment = 1
+
+[node name="PlaceScore" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1

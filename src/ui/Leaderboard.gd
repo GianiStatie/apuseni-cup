@@ -1,25 +1,36 @@
 extends Panel
 
+var sw_laderboard: Dictionary
+var PlaceContainerScene = preload("res://src/ui/place_container.tscn")
+
+
+func _ready():
+	sw_laderboard = await SilentWolf.Scores.get_scores(5).sw_get_scores_complete
 
 func update_scores():
-	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(5).sw_get_scores_complete
+	var placeholder_text = "- Your Best -"
 	
-	%FirstPlaceLabel.text = "1. %s"%(sw_result["scores"][0]["player_name"])
-	%FirstPlaceScore.text = "%s"%(sw_result["scores"][0]["score"])
+	var scores = sw_laderboard["scores"]
 	
-	%SecondPlaceLabel.text = "2. %s"%(sw_result["scores"][1]["player_name"])
-	%SecondPlaceScore.text = "%s"%(sw_result["scores"][1]["score"])
+	var player_highscore = GameState.highscore
+	var sw_player_position = await SilentWolf.Scores.get_score_position(player_highscore).sw_get_position_complete
+	var player_position = sw_player_position.position
 	
-	%ThirdPlaceLabel.text = "3. %s"%(sw_result["scores"][2]["player_name"])
-	%ThirdPlaceScore.text = "%s"%(sw_result["scores"][2]["score"])
+	if player_position < len(scores):
+		scores.insert({"score": player_highscore, "player_name": placeholder_text})
+	else:
+		scores.append({"score": player_highscore, "player_name": placeholder_text})
 	
-	%FourthPlaceLabel.text = "4. %s"%(sw_result["scores"][3]["player_name"])
-	%FourthPlaceScore.text = "%s"%(sw_result["scores"][3]["score"])
-	
-	%FifthPlaceLabel.text = "5. %s"%(sw_result["scores"][4]["player_name"])
-	%FifthPlaceScore.text = "%s"%(sw_result["scores"][4]["score"])
-	
-	%YourPlaceScore.text = "%s"%(GameState.highscore)
+	for place in len(scores):
+		var place_container = PlaceContainerScene.instantiate()
+		%LadeboardContainer.add_child(place_container)
+		%LadeboardContainer.move_child(place_container, place + 1)
+		
+		if placeholder_text != scores[place]["player_name"]:
+			place_container.label = "%s. %s"%[place, scores[place]["player_name"]]
+		else:
+			place_container.label = placeholder_text
+		place_container.score = "%s"%[scores[place]["score"]]
 	
 	if GameState.highscore_submitted:
 		%SubmitContainer.visible = false
