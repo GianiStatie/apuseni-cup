@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dv2oa7jeduxmj"]
+[gd_scene load_steps=28 format=3 uid="uid://dv2oa7jeduxmj"]
 
 [ext_resource type="Script" path="res://src/Spawner.gd" id="1_7x8jn"]
 [ext_resource type="Script" path="res://main.gd" id="1_bjy5c"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://src/ui/PauseScreen.gd" id="9_qhxdr"]
 [ext_resource type="AudioStream" uid="uid://br7panw7jlkwq" path="res://assets/sounds/Grieg - In the Hall of the Mountain King.wav" id="11_3vnd0"]
 [ext_resource type="AudioStream" uid="uid://c56rmvnb1k6" path="res://assets/sounds/Cheer Sound Effect.mp3" id="11_kl1e3"]
+[ext_resource type="PackedScene" uid="uid://va6d433s0sxi" path="res://src/ui/leaderboard.tscn" id="11_ueh4k"]
 [ext_resource type="Texture2D" uid="uid://b2oxtqdch5vps" path="res://assets/sprites/tilemap_packed.png" id="12_3fcfo"]
 
 [sub_resource type="Animation" id="Animation_65kgd"]
@@ -198,9 +199,10 @@ size_flags_vertical = 3
 max_value = 750.0
 fill_mode = 2
 
-[node name="EndScreen" parent="UI" instance=ExtResource("5_e0xiv")]
+[node name="EndScreen" parent="UI" node_paths=PackedStringArray("leaderboard_path") instance=ExtResource("5_e0xiv")]
 unique_name_in_owner = true
 visible = false
+leaderboard_path = NodePath("../Leaderboard")
 
 [node name="TutorialScreen" type="CenterContainer" parent="UI"]
 unique_name_in_owner = true
@@ -318,6 +320,9 @@ texture_pressed = SubResource("AtlasTexture_7vyvs")
 passby_press = true
 action = "ui_accept"
 visibility_mode = 1
+
+[node name="Leaderboard" parent="UI" instance=ExtResource("11_ueh4k")]
+visible = false
 
 [node name="MarginContainer4" type="MarginContainer" parent="UI"]
 anchors_preset = 2

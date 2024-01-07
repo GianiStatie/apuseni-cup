@@ -1,0 +1,208 @@
+[gd_scene load_steps=2 format=3 uid="uid://va6d433s0sxi"]
+
+[ext_resource type="Script" path="res://src/ui/Leaderboard.gd" id="1_jn1ls"]
+
+[node name="Leaderboard" type="Panel"]
+custom_minimum_size = Vector2(350, 400)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = -235.5
+offset_right = 175.0
+offset_bottom = 235.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jn1ls")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TitleContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "LEADER BOARD"
+horizontal_alignment = 1
+
+[node name="FirstPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FirstPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/FirstPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1. Lorem Ipsum
+"
+vertical_alignment = 1
+
+[node name="FirstPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/FirstPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SecondPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SecondPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/SecondPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2. Lorem Ipsum
+"
+vertical_alignment = 1
+
+[node name="SecondPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/SecondPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ThirdPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ThirdPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/ThirdPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3. Lorem Ipsum"
+vertical_alignment = 1
+
+[node name="ThirdPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/ThirdPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FourthPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FourthPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/FourthPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3. Lorem Ipsum"
+vertical_alignment = 1
+
+[node name="FourthPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/FourthPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="FifthPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FifthPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/FifthPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3. Lorem Ipsum"
+vertical_alignment = 1
+
+[node name="FifthPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/FifthPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="YourPlace" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="YourPlaceLabel" type="Label" parent="MarginContainer/VBoxContainer/YourPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Your Best"
+vertical_alignment = 1
+
+[node name="YourPlaceScore" type="Label" parent="MarginContainer/VBoxContainer/YourPlace"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "value"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="AlreadySubmitted" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Highscore Already Submitted"
+horizontal_alignment = 1
+
+[node name="SubmitContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PlayerName" type="LineEdit" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SubmitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+placeholder_text = "Your Name"
+alignment = 1
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SubmitContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+disabled = true
+text = "Submit Score"
+
+[node name="Retry" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(125, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Retry"
+
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SubmitContainer/PlayerName" to="." method="_on_player_name_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/SubmitContainer/SubmitButton" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]

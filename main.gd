@@ -18,6 +18,8 @@ var stone_type = "Stone"
 var spawned_end_screen = false
 
 func _ready():
+	print(GameState.highscore_submitted, GameState.highscore)
+	
 	progress_bar.max_value = main_theme_total_time
 	
 	if GameState.seen_tutorial:

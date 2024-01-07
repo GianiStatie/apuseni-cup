@@ -7,6 +7,7 @@ var strife_perc = 0.5
 
 var seen_tutorial = false
 var highscore = 0
+var highscore_submitted = true
 var attempts = 1
 
 var acceleartion = 5
@@ -29,6 +30,13 @@ var bonus_points = 0
 @onready var y_shift = viewport_size.y / (Constants.max_rows_per_screen - 1)
 
 @onready var player_position = Vector2(viewport_size.x / 2, viewport_size.y / 3)
+
+func _ready():
+	SilentWolf.configure({
+	"api_key": "SkOfT0hIIA9tN8aZkkuzR9cox8SqDjqjaNfzKTMj",
+	"game_id": "ApuseniCup",
+	"log_level": 1
+  })
 
 func _on_reset_button_pressed():
 	attempts += 1
