@@ -1,23 +1,21 @@
 extends Panel
 
+var placeholder_text = "- Your Best -"
 var sw_laderboard: Dictionary
+var scores: Array
 var PlaceContainerScene = preload("res://src/ui/place_container.tscn")
 
 
-func _ready():
-	sw_laderboard = await SilentWolf.Scores.get_scores(5).sw_get_scores_complete
-
 func update_scores():
-	var placeholder_text = "- Your Best -"
-	
-	var scores = sw_laderboard["scores"]
+	sw_laderboard = await SilentWolf.Scores.get_scores(5).sw_get_scores_complete
+	scores = sw_laderboard["scores"]
 	
 	var player_highscore = GameState.highscore
 	var sw_player_position = await SilentWolf.Scores.get_score_position(player_highscore).sw_get_position_complete
 	var player_position = sw_player_position.position
 	
-	if player_position < len(scores):
-		scores.insert({"score": player_highscore, "player_name": placeholder_text})
+	if player_position <= len(scores):
+		scores.insert(player_position - 1, {"score": player_highscore, "player_name": placeholder_text})
 	else:
 		scores.append({"score": player_highscore, "player_name": placeholder_text})
 	
@@ -25,8 +23,14 @@ func update_scores():
 		var place_container = PlaceContainerScene.instantiate()
 		%LadeboardContainer.add_child(place_container)
 		%LadeboardContainer.move_child(place_container, place + 1)
-		place_container.label = "%s. %s"%[place, scores[place]["player_name"]]
+		
+		var player_name = scores[place]["player_name"]
+		
+		place_container.label = "%s. %s"%[place + 1, player_name]
 		place_container.score = "%s"%[scores[place]["score"]]
+		
+		if player_name == placeholder_text:
+			place_container.label = "%s. %s"%[player_position, player_name]
 	
 	if GameState.highscore_submitted:
 		%SubmitContainer.visible = false
