@@ -25,11 +25,7 @@ func update_scores():
 		var place_container = PlaceContainerScene.instantiate()
 		%LadeboardContainer.add_child(place_container)
 		%LadeboardContainer.move_child(place_container, place + 1)
-		
-		if placeholder_text != scores[place]["player_name"]:
-			place_container.label = "%s. %s"%[place, scores[place]["player_name"]]
-		else:
-			place_container.label = placeholder_text
+		place_container.label = "%s. %s"%[place, scores[place]["player_name"]]
 		place_container.score = "%s"%[scores[place]["score"]]
 	
 	if GameState.highscore_submitted:
